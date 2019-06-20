@@ -7,7 +7,7 @@ public class BuffArray
     // 私有构造函数
     private BuffArray()
     {
-        myBuffs = new List<Buff>();
+        myBuffs = new Dictionary<string, Buff>();
     }
 
     // 单例类
@@ -23,6 +23,19 @@ public class BuffArray
     }
 
     // 保存当前身上的buff
-    private List<Buff> myBuffs;
+    private Dictionary<string ,Buff> myBuffs;
+
+
+    // 加入一个buff
+    public void AddBuff(string name, Buff buff)
+    {
+        // 加入一个buff
+        if(!myBuffs.ContainsKey(name))
+            myBuffs.Add(name, buff);
+        else
+        {
+            myBuffs[name].Superposition(buff);
+        }
+    }
 
 }

@@ -13,6 +13,7 @@ public class HeroMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GamePlay.GetInstance().heroPos = 0;
         this.heroPos = 0;
         this.chessBoard = GamePersist.GetInstance().GetChessBoard();
         this.scene.localPosition = new Vector3(chessBoard.cells[0].position.x, chessBoard.cells[0].position.y, 0);
@@ -20,11 +21,6 @@ public class HeroMove : MonoBehaviour
         GamePlay.GetInstance().heroMove = this;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     public void MakeMove(int stepCount)
     {
@@ -34,6 +30,9 @@ public class HeroMove : MonoBehaviour
 
     IEnumerator Move(int stepCount)
     {
+        // 隐藏色子
+        GamePlay.GetInstance().HideMoveDice();
+
         for(int i = 0; i<stepCount; i++)
         {
             ++this.heroPos;
@@ -43,6 +42,9 @@ public class HeroMove : MonoBehaviour
             // 进行移动
             yield return new WaitForSeconds(0.2f);
         }
+        
+        GamePlay.GetInstance().heroPos = this.heroPos;
         // 激活棋盘上的事件
+        GamePlay.GetInstance().InvokeEvent();
     }
 }

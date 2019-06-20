@@ -4,6 +4,18 @@ using UnityEngine;
 
 public class Buff
 {
+    // 属性
+    public float point;
+
+    // 名字
+    public string name;
+
+    // 属性说明
+    public string attribute;
+
+    // 文案说明
+    public string explaination;
+
     // 在获得时候
     public virtual void OnAcquire()
     {
@@ -42,6 +54,12 @@ public class Buff
 
     // 每掷出一个骰子点数时
     public virtual void Dice(int diceIndex)
+    {
+
+    }
+
+    // buff的叠加
+    public virtual void Superposition(Buff other)
     {
 
     }

@@ -7,6 +7,11 @@ public class Hero
     // 私有构造函数
     private Hero()
     {
+        health = 100;
+        spellAttack = 10;
+        spellDefense = 10;
+        physicalAttack = 20;
+        physicalDefense = 10;
     }
 
     // 单例类
@@ -35,5 +40,11 @@ public class Hero
 
     // 血量
     public int health;
+
+    // 计算新的buff数值
+    public void Calculate()
+    {
+
+    }
 
 }
