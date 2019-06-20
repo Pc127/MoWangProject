@@ -29,12 +29,16 @@ public class BuffArray
     // 加入一个buff
     public void AddBuff(string name, Buff buff)
     {
+        // 获取buff时
+        buff.OnAcquire();
+
         // 加入一个buff
         if(!myBuffs.ContainsKey(name))
             myBuffs.Add(name, buff);
         else
         {
             myBuffs[name].Superposition(buff);
+            Debug.Log("Buff加成" + myBuffs[name].point);
         }
     }
 

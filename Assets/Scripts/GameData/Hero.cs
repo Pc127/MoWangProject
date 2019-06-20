@@ -41,10 +41,4 @@ public class Hero
     // 血量
     public int health;
 
-    // 计算新的buff数值
-    public void Calculate()
-    {
-
-    }
-
 }

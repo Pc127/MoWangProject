@@ -28,6 +28,17 @@ public class GamePersist : MonoBehaviour
             be.buffTwo = new ElementPerception(5);
             this.sceneBuffEvents[0].myBuffs[i] = be;
         }
+
+        // 怪物事件
+        this.sceneMonster = new MonsterEvents[3];
+        this.sceneMonster[1] = new MonsterEvents(1);
+
+        MonsterEvent monsterEvent = new MonsterEvent(1, 10);
+        // 创建一个小怪物
+        monsterEvent.monster = new MyMonster(10,10,10,10,50);
+
+        this.sceneMonster[1].myMonsters[0] = monsterEvent;
+
     }
 
     // 单例类
@@ -54,11 +65,20 @@ public class GamePersist : MonoBehaviour
         return sceneBuffEvents[this.currentLevel];
     }
 
+    // 获得当前monster事件
+    public MonsterEvents GetMonsterEvents()
+    {
+        return sceneMonster[this.currentLevel];
+    }
+
     // 保存三个棋盘
     public ChessBoard[] chessBoards;
 
     // 保存三个buffer棋盘事件
     public BuffEvents[] sceneBuffEvents;
+
+    // 保存三个monster世界
+    public MonsterEvents[] sceneMonster;
 
     public int currentLevel;
 }
