@@ -23,7 +23,7 @@ public class BattleCardArray
     }
 
     // 保存当前身上的Card
-    private List<BattleCard> myCards;
+    public List<BattleCard> myCards;
 
 
     // 加入一张卡片

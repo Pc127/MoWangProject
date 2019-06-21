@@ -35,7 +35,7 @@ public class BattleInfo
 public class Battle
 {
     // 进行战斗的计算
-    static void StartBattle(Monster monster, params BattleCard[] cards)
+    public static void StartBattle(Monster monster, params BattleCard[] cards)
     {
         // 主角
         Hero hero = Hero.GetInstance();
@@ -58,9 +58,13 @@ public class Battle
         monster.health -= heroAttack.pa - monster.physicalDefense >0 ? heroAttack.pa - monster.physicalDefense : 0;
         hero.health -= monsterAttack.pa - hero.physicalDefense > 0 ? monsterAttack.pa - hero.physicalDefense : 0;
 
+        
+
         // 魔法
         monster.health -= heroAttack.sa - monster.spellDefense > 0 ? heroAttack.sa - monster.spellDefense : 0;
         hero.health -= monsterAttack.sa - hero.physicalDefense > 0 ? monsterAttack.pa - hero.physicalDefense : 0;
+
+        Debug.Log("战斗完英雄血量" + hero.health);
     }
     
 }

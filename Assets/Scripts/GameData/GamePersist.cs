@@ -30,14 +30,19 @@ public class GamePersist : MonoBehaviour
         }
 
         // 怪物事件
+        // 数组
         this.sceneMonster = new MonsterEvents[3];
-        this.sceneMonster[1] = new MonsterEvents(1);
+        this.sceneMonster[0] = new MonsterEvents(1);
 
+        // 第一个场景
         MonsterEvent monsterEvent = new MonsterEvent(1, 10);
         // 创建一个小怪物
-        monsterEvent.monster = new MyMonster(10,10,10,10,50);
+        monsterEvent.monster = new MyMonster(50,10,10,10,50);
 
-        this.sceneMonster[1].myMonsters[0] = monsterEvent;
+        this.sceneMonster[0].myMonsters[0] = monsterEvent;
+
+        // 卡牌加入一张跳劈卡
+        BattleCardArray.GetInstance().AddBattleCard(new JumpCut());
 
     }
 

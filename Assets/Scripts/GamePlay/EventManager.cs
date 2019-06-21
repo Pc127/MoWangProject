@@ -15,6 +15,7 @@ public class EventManager
     {
         // 获取当前的buffs
         currentBuffs = GamePersist.GetInstance().GetBuffEvents();
+        currentMonsters = GamePersist.GetInstance().GetMonsterEvents();
     }
 
     // 单例类
@@ -32,12 +33,25 @@ public class EventManager
     // 当前关卡的buff信息
     private BuffEvents currentBuffs;
 
+    // 当前关卡的战斗信息
+    private MonsterEvents currentMonsters;
+
     // buff相关的ui逻辑
     public BuffUI buffUI;
+
+    // 战斗
+    public BattleUI battleUI;
 
     public void InvokeEvent(int heroPos)
     {
         // 先检查怪物
+        Monster m = currentMonsters.GetMonster(heroPos);
+
+        if(m != null)
+        {
+            battleUI.BattleVsMonster(m);
+            return;
+        }
 
         // 触发buff事件
         buffUI.GetBuffEvent(currentBuffs.myBuffs[heroPos]);

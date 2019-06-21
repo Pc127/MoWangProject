@@ -1,18 +1,135 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BattleUI : MonoBehaviour
 {
-    // Start is called before the first frame update
+    // 显示相关
+    public GameObject show;
+
+    // 怪物信息相关
+    public Image monsterImg;
+
+    public Text monsterText;
+
+    public Text monsterName;
+
+    // 怪物属性相关
+    public Text physicalAttack;
+
+    public Text physicalDefense;
+
+    public Text spellAttack;
+
+    public Text spellDefense;
+
+    public Text health;
+
+    // 战斗卡牌的父级对象
+    public GameObject battleCardShow;
+
+    // 战斗卡牌的perfab
+    public GameObject battleCardPerfab;
+
+    // 选中的卡牌
+    public List<BattleCard> battleCards;
+
+    // 战斗的怪物
+    private Monster myMonster;
+
+    // 更新怪物信息的协程
+    private Coroutine infoCoroutine;
+
     void Start()
     {
-        
+        EventManager.GetInstance().battleUI = this;
+        battleCards = new List<BattleCard>();
     }
 
-    // Update is called once per frame
-    void Update()
+
+    public void BattleVsMonster(Monster monster)
     {
-        
+        // 显示战斗场景
+        show.SetActive(true);
+
+        // 保存怪物
+        myMonster = monster;
+
+        this.infoCoroutine = StartCoroutine(InfoPreFrame());
+
+        // 展示卡牌
+        ShowBattleCards();
+    }
+
+    public void ShowBattleCards()
+    {
+        battleCardShow.SetActive(true);
+
+        int index = 0;
+        // 删除所有子节点
+        foreach(Transform child in battleCardShow.transform)
+        {
+            if(index == 0)
+            {
+                index = 10;
+            }
+            else
+                Destroy(child.gameObject);
+        }
+
+        index = 0;
+
+        // 读取卡牌序列 并显示
+        foreach(BattleCard bc in BattleCardArray.GetInstance().myCards)
+        {
+            // 初始化卡牌
+            GameObject obj = Instantiate(battleCardPerfab);
+            obj.transform.parent = battleCardShow.transform;
+            BattleCardUI bu = obj.GetComponent<BattleCardUI>();
+            bu.InitialCard(bc, index);
+            obj.SetActive(true);
+            obj.gameObject.transform.localPosition = new Vector3(index * 300, 0, 0);
+            obj.transform.localScale = new Vector3(1, 1, 1);
+        }
+    }
+
+
+    public void StartBattle()
+    {
+        Debug.Log("你出了多少张卡牌" + battleCards.Count);
+        Battle.StartBattle(myMonster, battleCards.ToArray());
+        // 2s后结束游戏
+        StartCoroutine(EndBattle(2));
+    }
+
+    // 结束战斗
+    IEnumerator EndBattle(float sec)
+    {
+        yield return new WaitForSeconds(sec);
+
+        this.show.SetActive(false);
+        GamePlay.GetInstance().ShowMoveDice();
+        StopCoroutine(this.infoCoroutine);
+    }
+
+    IEnumerator InfoPreFrame()
+    {
+        while (true)
+        {
+            // 显示怪物名称 与 说明
+            monsterImg.sprite = Resources.Load<Sprite>("Monster/" + myMonster.name);
+            monsterName.text = myMonster.name;
+            monsterText.text = myMonster.explaination;
+
+            // 更新数值显示
+            physicalAttack.text = "" + myMonster.physicalAttack;
+            spellAttack.text = "" + myMonster.spellAttack;
+            spellDefense.text = "" + myMonster.spellDefense;
+            physicalDefense.text = "" + myMonster.physicalDefense;
+            health.text = "" + myMonster.health;
+
+            yield return new WaitForEndOfFrame();
+        }
     }
 }
