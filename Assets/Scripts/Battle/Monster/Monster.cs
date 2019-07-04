@@ -33,11 +33,15 @@ public class Monster
         physicalDefense = pd;
         spellDefense = sd;
         health = ph;
+        live = true;
     }
 
     public virtual BattleInfo MakeAttack()
     {
         return new BattleInfo();
     }
+
+    // 判断是否存活
+    public bool live;
 
 }

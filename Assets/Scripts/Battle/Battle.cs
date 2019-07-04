@@ -58,13 +58,32 @@ public class Battle
         monster.health -= heroAttack.pa - monster.physicalDefense >0 ? heroAttack.pa - monster.physicalDefense : 0;
         hero.health -= monsterAttack.pa - hero.physicalDefense > 0 ? monsterAttack.pa - hero.physicalDefense : 0;
 
-        
+        if(monster.health <= 0)
+        {
+            monster.health = 0;
+            MonsterDie(monster);
+        }
 
+        if(hero.health <= 0)
+        {
+            hero.health = 0;
+            HeroDie();
+        }
         // 魔法
         monster.health -= heroAttack.sa - monster.spellDefense > 0 ? heroAttack.sa - monster.spellDefense : 0;
         hero.health -= monsterAttack.sa - hero.physicalDefense > 0 ? monsterAttack.pa - hero.physicalDefense : 0;
 
         Debug.Log("战斗完英雄血量" + hero.health);
+    }
+
+    public static void HeroDie()
+    {
+        GamePlay.GetInstance().die.HeroDie();
+    }
+
+    public static void MonsterDie(Monster monster)
+    {
+        monster.live = false;
     }
     
 }

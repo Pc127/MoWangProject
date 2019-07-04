@@ -13,14 +13,12 @@ public class GamePlay
     // 骰子
     public Dice dice;
 
-    // 事件manager 采用单例形式调用
-    // public EventManager eventManager;
+    // 主角死亡
+    public YouDie die;
 
     // 私有构造函数
     private GamePlay()
     {
-        // 生成一下成员
-        // EventManager.GetInstance();
     }
 
     // 单例类
@@ -42,6 +40,12 @@ public class GamePlay
         heroMove.MakeMove(stepCount);
     }
 
+    // 不触发行动事件的移动
+    public void MakeMoveWithoutAction(int step)
+    {
+        heroMove.MakeMoveWithoutAction(step);
+    }
+
     // 骰子相关
     // 显示骰子
     public void ShowMoveDice()
@@ -53,13 +57,5 @@ public class GamePlay
     public void HideMoveDice()
     {
         dice.HideMoveDice();
-    }
-
-    // 棋盘事件相关
-    // 利用英雄位置
-    public void InvokeEvent()
-    {
-
-        EventManager.GetInstance().InvokeEvent(heroPos);
     }
 }

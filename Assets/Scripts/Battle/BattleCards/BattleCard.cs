@@ -11,6 +11,12 @@ public class BattleCard
     // 说明
     public string explaination;
 
+    // 说明
+    public bool needDice;
+
+    // 骰子点数
+    public int diceIndex;
+
     public virtual BattleInfo InvokeCard()
     {
         BattleInfo info = new BattleInfo();

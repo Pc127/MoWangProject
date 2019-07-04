@@ -42,13 +42,20 @@ public class EventManager
     // 战斗
     public BattleUI battleUI;
 
-    public void InvokeEvent(int heroPos)
+    // 行动牌ui
+    public ActionUI actionUI;
+
+    // 触发事件
+    public void InvokeEvent()
     {
+        int heroPos = GamePlay.GetInstance().heroPos;
+
         // 先检查怪物
         Monster m = currentMonsters.GetMonster(heroPos);
 
         if(m != null)
         {
+            // 触发战斗
             battleUI.BattleVsMonster(m);
             return;
         }
@@ -56,5 +63,42 @@ public class EventManager
         // 触发buff事件
         buffUI.GetBuffEvent(currentBuffs.myBuffs[heroPos]);
 
+    }
+
+    // 触发行动
+    public void StartAction(int heroPos)
+    {
+        if(currentMonsters.GetMonster(heroPos) == null)
+        {
+            actionUI.MakeActionChoose(false);
+        }
+        else
+        {
+            actionUI.MakeActionChoose(true);
+        }
+    }
+
+    // 触发行动牌
+    public void InvokeAction(ActionInfo info)
+    {
+        this.actionUI.HideAction();
+
+        // 闪避了怪物的攻击 直接进入下一个回合
+        if (info.dodge)
+        {
+            GamePlay.GetInstance().ShowMoveDice();
+        }
+
+        else if (info.move)
+        {
+            // 进行指定步数的移动
+            GamePlay.GetInstance().MakeMoveWithoutAction(info.moveLen);
+        }
+    }
+
+    // 判断是否会被怪物拦下
+    public bool MeetMonster(int heropos)
+    {
+        return currentMonsters.GetCurrentMonster(heropos);
     }
 }

@@ -34,9 +34,18 @@ public class BattleUI : MonoBehaviour
 
     // 选中的卡牌
     public List<BattleCard> battleCards;
+    // 选中的卡牌中需要判定的卡牌数量
+    private int diceCount;
+    private int cursor;
+    private int[] diceInfo;
+    private List<string> cardName;
 
     // 战斗的怪物
     private Monster myMonster;
+
+    //骰子
+    public GameObject dice;
+    public Text diceCardName;
 
     // 更新怪物信息的协程
     private Coroutine infoCoroutine;
@@ -45,6 +54,7 @@ public class BattleUI : MonoBehaviour
     {
         EventManager.GetInstance().battleUI = this;
         battleCards = new List<BattleCard>();
+        cardName = new List<string>();
     }
 
 
@@ -68,9 +78,9 @@ public class BattleUI : MonoBehaviour
 
         int index = 0;
         // 删除所有子节点
-        foreach(Transform child in battleCardShow.transform)
+        foreach (Transform child in battleCardShow.transform)
         {
-            if(index == 0)
+            if (index == 0)
             {
                 index = 10;
             }
@@ -81,7 +91,7 @@ public class BattleUI : MonoBehaviour
         index = 0;
 
         // 读取卡牌序列 并显示
-        foreach(BattleCard bc in BattleCardArray.GetInstance().myCards)
+        foreach (BattleCard bc in BattleCardArray.GetInstance().myCards)
         {
             // 初始化卡牌
             GameObject obj = Instantiate(battleCardPerfab);
@@ -94,10 +104,69 @@ public class BattleUI : MonoBehaviour
         }
     }
 
+    // 开始进行战斗骰子的判定
+    public void StartDice()
+    {
+        dice.SetActive(true);
+    }
+
+    public void EndDice()
+    {
+        dice.SetActive(false);
+        int i = 0;
+        // 骰子点数 赋值到卡牌中
+        foreach(var item in battleCards)
+        {
+            if (item.needDice)
+            {
+                item.diceIndex = diceInfo[i];
+                this.diceCardName.text = cardName[i++];
+            }
+        }
+        // 开启战斗
+        StartBattle();
+    }
+
+    public void ShotDice(int index)
+    {
+        // 保存
+        diceInfo[cursor++] = index;
+        if(cursor == diceCount)
+        {
+            EndDice();
+        }
+    }
+
+    // 打出卡牌
+    public void EndBattleCard()
+    {
+        Debug.Log("你出了多少张卡牌" + battleCards.Count);
+
+        cardName.Clear();
+        this.diceCount = 0;
+        foreach (var item in battleCards)
+        {
+            if (item.needDice)
+            {
+                ++diceCount;
+                cardName.Add(item.name);
+            }
+                
+        }
+        // 创建数组保存
+        if (diceCount > 0)
+        {
+            this.cursor = 0;
+            this.diceInfo = new int[this.diceCount];
+            StartDice();
+        }
+        else{
+            StartBattle();
+        }
+    }
 
     public void StartBattle()
     {
-        Debug.Log("你出了多少张卡牌" + battleCards.Count);
         Battle.StartBattle(myMonster, battleCards.ToArray());
         // 2s后结束游戏
         StartCoroutine(EndBattle(2));

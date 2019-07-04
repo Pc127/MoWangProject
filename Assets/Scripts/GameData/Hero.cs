@@ -12,6 +12,8 @@ public class Hero
         spellDefense = 10;
         physicalAttack = 50;
         physicalDefense = 10;
+
+        GamePersist.GetInstance();
     }
 
     // 单例类

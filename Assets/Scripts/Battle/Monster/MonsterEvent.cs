@@ -37,7 +37,7 @@ public class MonsterEvents
         foreach(MonsterEvent me in myMonsters)
         {
             // 当前怪物
-            if (me.current == index)
+            if (me.current == index && me.monster.live)
                 return me.monster;
 
             if(me.current == 0)
@@ -45,6 +45,7 @@ public class MonsterEvents
                 if((index >= me.begin) && (index <= me.end))
                 {
                     // 在范围中找到了这个怪物
+                    // 崭新的怪物 不用考虑死亡情况
                     me.current = index;
                     return me.monster;
                 }
@@ -53,6 +54,25 @@ public class MonsterEvents
 
         // 并没有找到想要的
         return null;
+    }
+
+    // 判断当前位置是否有已经出现的怪物
+    public bool GetCurrentMonster(int index)
+    {
+        if (index == 0)
+            return false;
+
+        foreach (MonsterEvent me in myMonsters)
+        {
+            // 当前怪物
+            if (me.current == index && me.monster.live)
+            {
+                return true;
+            }
+        }
+
+        // 并没有找到想要的
+        return false;
     }
 
     public MonsterEvent[] myMonsters;

@@ -8,6 +8,7 @@ public class JumpCut : BattleCard
     {
         this.name = "跳劈";
         this.explaination = "进行一次物理攻击";
+        this.needDice = false;
     }
 
     // 跳劈
@@ -18,6 +19,5 @@ public class JumpCut : BattleCard
         info.pa = Hero.GetInstance().physicalAttack;
 
         return info;
-
     }
 }

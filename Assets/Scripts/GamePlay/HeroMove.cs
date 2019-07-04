@@ -21,14 +21,20 @@ public class HeroMove : MonoBehaviour
         GamePlay.GetInstance().heroMove = this;
     }
 
+    // 不触发行动的移动
+    public void MakeMoveWithoutAction(int stepCount)
+    {
+        StartCoroutine(Move(stepCount, false));
+    }
 
+    // 触发行动的移动
     public void MakeMove(int stepCount)
     {
         // 进行移动
-        StartCoroutine(Move(stepCount));
+        StartCoroutine(Move(stepCount, true));
     }
 
-    IEnumerator Move(int stepCount)
+    IEnumerator Move(int stepCount, bool actionEnable)
     {
         // 隐藏色子
         GamePlay.GetInstance().HideMoveDice();
@@ -38,6 +44,13 @@ public class HeroMove : MonoBehaviour
             ++this.heroPos;
             if (heroPos == this.chessBoard.cellCount)
                 heroPos = 0;
+
+            // 如果遇到怪物就在这里停顿
+            if (EventManager.GetInstance().MeetMonster(heroPos))
+            {
+                break;
+            }
+                
             this.scene.localPosition = new Vector3(chessBoard.cells[heroPos].position.x, chessBoard.cells[heroPos].position.y, 0);
             // 进行移动
             yield return new WaitForSeconds(0.2f);
@@ -45,6 +58,13 @@ public class HeroMove : MonoBehaviour
         
         GamePlay.GetInstance().heroPos = this.heroPos;
         // 激活棋盘上的事件
-        GamePlay.GetInstance().InvokeEvent();
+        if (actionEnable)
+        {
+            EventManager.GetInstance().StartAction(this.heroPos);
+        }
+        else
+        {
+            EventManager.GetInstance().InvokeEvent();
+        }
     }
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GamePersist : MonoBehaviour
+public class GamePersist
 {
     // 私有构造函数
     private GamePersist()
@@ -43,6 +43,17 @@ public class GamePersist : MonoBehaviour
 
         // 卡牌加入一张跳劈卡
         BattleCardArray.GetInstance().AddBattleCard(new JumpCut());
+
+        // 行动牌加入
+        Dodge dodge = new Dodge();
+        dodge.count = 1;
+        dodge.activeCount = 1;
+
+        MoveAgain moveAgain = new MoveAgain();
+        moveAgain.count = 1;
+        moveAgain.activeCount = 1;
+        ActionCardArray.GetInstance().AddActionCard(dodge.name, dodge);
+        ActionCardArray.GetInstance().AddActionCard(moveAgain.name, moveAgain);
 
     }
 
