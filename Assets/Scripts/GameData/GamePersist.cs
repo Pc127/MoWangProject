@@ -22,11 +22,8 @@ public class GamePersist
 
         for(int i=0; i < 60; i++)
         {
-            // 加入事件
-            BuffEvent be = new BuffEvent();
-            be.buffOne = new BattleMemory(5);
-            be.buffTwo = new ElementPerception(5);
-            this.sceneBuffEvents[0].myBuffs[i] = be;
+            // 全部设置为1级buff
+            this.sceneBuffEvents[0].myBuffLevel[i] = 1;
         }
 
         // 怪物事件
@@ -43,6 +40,7 @@ public class GamePersist
 
         // 卡牌加入一张跳劈卡
         BattleCardArray.GetInstance().AddBattleCard(new JumpCut());
+        BattleCardArray.GetInstance().AddBattleCard(new Fireball());
 
         // 行动牌加入
         Dodge dodge = new Dodge();

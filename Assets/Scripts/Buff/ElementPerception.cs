@@ -6,6 +6,7 @@ public class ElementPerception : Buff
 {
     public ElementPerception(int point)
     {
+        this.level = 1;
         this.point = point;
         this.explaination = "以太的力量来源于“世界精神”，逸散于整个大气，与人类的灵魂拥有相同的质料——《光芒圣典》记载";
         this.name = "元素感知";

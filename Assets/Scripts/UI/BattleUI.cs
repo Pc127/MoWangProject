@@ -72,6 +72,7 @@ public class BattleUI : MonoBehaviour
         ShowBattleCards();
     }
 
+    // 展示卡牌
     public void ShowBattleCards()
     {
         battleCardShow.SetActive(true);
@@ -99,8 +100,10 @@ public class BattleUI : MonoBehaviour
             BattleCardUI bu = obj.GetComponent<BattleCardUI>();
             bu.InitialCard(bc, index);
             obj.SetActive(true);
-            obj.gameObject.transform.localPosition = new Vector3(index * 300, 0, 0);
             obj.transform.localScale = new Vector3(1, 1, 1);
+            obj.gameObject.transform.localPosition = new Vector3(index * 300, 0, 0);
+            Debug.Log("加载一张卡牌");
+            ++index;
         }
     }
 

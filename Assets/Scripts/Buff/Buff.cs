@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Buff
 {
+    // buff的级别
+    public int level;
+
     // 属性
     public float point;
 

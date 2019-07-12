@@ -61,7 +61,7 @@ public class EventManager
         }
 
         // 触发buff事件
-        buffUI.GetBuffEvent(currentBuffs.myBuffs[heroPos]);
+        buffUI.GetBuffEvent(currentBuffs.GetBuff(heroPos));
 
     }
 

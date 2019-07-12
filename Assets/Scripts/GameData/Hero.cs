@@ -13,6 +13,10 @@ public class Hero
         physicalAttack = 50;
         physicalDefense = 10;
 
+        strikeBack = 0;
+        bloodCeremony = false;
+        gloryBlessing = false;
+
         GamePersist.GetInstance();
     }
 
@@ -43,4 +47,10 @@ public class Hero
     // 血量
     public int health;
 
+    // 反击
+    public int strikeBack;
+
+    public bool bloodCeremony;
+
+    public bool gloryBlessing;
 }
