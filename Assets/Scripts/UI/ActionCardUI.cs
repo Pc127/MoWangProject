@@ -81,7 +81,7 @@ public class ActionCardUI : MonoBehaviour
     public void DodgeChoose()
     {
         // 激活闪避
-        EventManager.GetInstance().InvokeAction(this.myAction.InvokeAction());
+        //EventManager.GetInstance().InvokeAction(this.myAction.InvokeAction());
     }
 
     public void MoveAgainChoose()
@@ -94,7 +94,7 @@ public class ActionCardUI : MonoBehaviour
         ActionInfo info = myAction.InvokeAction();
         info.moveLen = index;
         // 激活移动
-        EventManager.GetInstance().InvokeAction(info);
+        //EventManager.GetInstance().InvokeAction(info);
     }
 
 }

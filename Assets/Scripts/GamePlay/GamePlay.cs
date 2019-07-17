@@ -16,6 +16,9 @@ public class GamePlay
     // 主角死亡
     public YouDie die;
 
+    // 怪物加载
+    public MonsterLoad monsterLoad;
+
     // 私有构造函数
     private GamePlay()
     {

@@ -10,7 +10,7 @@ public class Hero
         health = 100;
         spellAttack = 10;
         spellDefense = 10;
-        physicalAttack = 50;
+        physicalAttack = 20;
         physicalDefense = 10;
 
         strikeBack = 0;

@@ -17,7 +17,7 @@ public class ActionUI : MonoBehaviour
     void Start()
     {
         // 注册
-        EventManager.GetInstance().actionUI = this;
+        //EventManager.GetInstance().actionUI = this;
     }
 
     void Update()

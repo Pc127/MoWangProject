@@ -25,20 +25,24 @@ public class Monster
     // 血量
     public int health;
 
-    public Monster(int pa, int sa, int pd, int sd, int ph)
+    public string story;
+
+    public Monster()
     {
-        // 初始化属性
-        physicalAttack = pa;
-        spellAttack = sa;
-        physicalDefense = pd;
-        spellDefense = sd;
-        health = ph;
         live = true;
     }
 
     public virtual BattleInfo MakeAttack()
     {
         return new BattleInfo();
+    }
+
+    // 死亡事件 为玩家带来一张牌
+    public virtual void Die()
+    {
+        BattleCard bc = BattleCardFactory.GetInstance().GetRandomCard();
+        EventManager.GetInstance().getCardUI.InitialCard(bc);
+        BattleCardArray.GetInstance().myCards.Add(bc);
     }
 
     // 判断是否存活

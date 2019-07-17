@@ -34,7 +34,7 @@ public class GamePersist
         // 第一个场景
         MonsterEvent monsterEvent = new MonsterEvent(1, 10);
         // 创建一个小怪物
-        monsterEvent.monster = new MyMonster(50,10,10,10,50);
+        monsterEvent.monster = new BleakDog();
 
         this.sceneMonster[0].myMonsters[0] = monsterEvent;
 

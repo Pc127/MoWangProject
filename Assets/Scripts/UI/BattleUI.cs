@@ -32,13 +32,8 @@ public class BattleUI : MonoBehaviour
     // 战斗卡牌的perfab
     public GameObject battleCardPerfab;
 
-    // 选中的卡牌
-    public List<BattleCard> battleCards;
-    // 选中的卡牌中需要判定的卡牌数量
-    private int diceCount;
-    private int cursor;
-    private int[] diceInfo;
-    private List<string> cardName;
+    // 使用的卡牌
+    public BattleCard currentCard;
 
     // 战斗的怪物
     private Monster myMonster;
@@ -53,8 +48,6 @@ public class BattleUI : MonoBehaviour
     void Start()
     {
         EventManager.GetInstance().battleUI = this;
-        battleCards = new List<BattleCard>();
-        cardName = new List<string>();
     }
 
 
@@ -113,70 +106,33 @@ public class BattleUI : MonoBehaviour
         dice.SetActive(true);
     }
 
-    public void EndDice()
-    {
-        dice.SetActive(false);
-        int i = 0;
-        // 骰子点数 赋值到卡牌中
-        foreach(var item in battleCards)
-        {
-            if (item.needDice)
-            {
-                item.diceIndex = diceInfo[i];
-                this.diceCardName.text = cardName[i++];
-            }
-        }
-        // 开启战斗
-        StartBattle();
-    }
-
     public void ShotDice(int index)
     {
         // 保存
-        diceInfo[cursor++] = index;
-        if(cursor == diceCount)
-        {
-            EndDice();
-        }
+        currentCard.diceIndex = index;
+
+        dice.SetActive(false);
+        // 进行战斗
+        StartBattle();
     }
 
-    // 打出卡牌
-    public void EndBattleCard()
-    {
-        Debug.Log("你出了多少张卡牌" + battleCards.Count);
-
-        cardName.Clear();
-        this.diceCount = 0;
-        foreach (var item in battleCards)
-        {
-            if (item.needDice)
-            {
-                ++diceCount;
-                cardName.Add(item.name);
-            }
-                
-        }
-        // 创建数组保存
-        if (diceCount > 0)
-        {
-            this.cursor = 0;
-            this.diceInfo = new int[this.diceCount];
-            StartDice();
-        }
-        else{
-            StartBattle();
-        }
-    }
 
     public void StartBattle()
     {
-        Battle.StartBattle(myMonster, battleCards.ToArray());
+        Battle.StartBattle(myMonster, currentCard);
         // 2s后结束游戏
-        StartCoroutine(EndBattle(2));
+        if (!myMonster.live)
+            EndBattle();
+    }
+
+    public void EndBattle()
+    {
+        // 2秒后结束游戏
+        StartCoroutine(EndBattleCoroutine(2));
     }
 
     // 结束战斗
-    IEnumerator EndBattle(float sec)
+    IEnumerator EndBattleCoroutine(float sec)
     {
         yield return new WaitForSeconds(sec);
 
@@ -202,6 +158,21 @@ public class BattleUI : MonoBehaviour
             health.text = "" + myMonster.health;
 
             yield return new WaitForEndOfFrame();
+        }
+    }
+
+    public void UseCard(BattleCard bc)
+    {
+        // 当前使用的卡牌
+        this.currentCard = bc;
+
+        if (bc.needDice)
+        {
+            StartDice();
+        }
+        else
+        {
+            StartBattle();
         }
     }
 }

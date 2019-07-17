@@ -35,16 +35,8 @@ public class BattleCardUI : MonoBehaviour
     public void OnChoose()
     {
         Debug.Log("出牌" + mycard.name);
-        EventManager.GetInstance().battleUI.battleCards.Add(mycard);
-        button.onClick.RemoveAllListeners();
-        button.onClick.AddListener(OnCancel);
-    }
-
-    public void OnCancel()
-    {
-        Debug.Log("取消出牌" + mycard.name);
-        EventManager.GetInstance().battleUI.battleCards.Remove(mycard);
-        button.onClick.RemoveAllListeners();
-        button.onClick.AddListener(OnChoose);
+        EventManager.GetInstance().battleUI.UseCard(mycard);
+        // 卡牌已出
+        this.gameObject.SetActive(false);
     }
 }
