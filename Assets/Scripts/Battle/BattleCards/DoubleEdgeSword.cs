@@ -20,7 +20,7 @@ public class DoubleEdgeSword : BattleCard
 
         int i = Hero.GetInstance().physicalAttack;
 
-        info.selfDemage = i;
+        info.selfPhysicalDemage = i;
         info.physicalAttack = 3 * i;
 
         return info;

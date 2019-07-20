@@ -7,11 +7,11 @@ public class BlackSheep : Monster
     // 一只 只会进行普通攻击的小怪
     public BlackSheep()
     {
-        this.physicalAttack = 20;
-        this.physicalDefense = 20;
-        this.spellAttack = 20;
-        this.spellDefense = 20;
-        this.health = 30;
+        this.physicalAttack = 100;
+        this.physicalDefense = 50;
+        this.spellAttack = 0;
+        this.spellDefense = 50;
+        this.health = 250;
 
         this.name = "黑羊崔西";
         this.explaination = "黑色的羊，普通物理攻击";

@@ -27,9 +27,16 @@ public class Monster
 
     public string story;
 
+    // 叠毒
+    private int toxin;
+
+    private float latentDamage;
+
     public Monster()
     {
         live = true;
+        toxin = 0;
+        latentDamage = 0.5f;
     }
 
     public virtual BattleInfo MakeAttack()
@@ -43,6 +50,22 @@ public class Monster
         BattleCard bc = BattleCardFactory.GetInstance().GetRandomCard();
         EventManager.GetInstance().getCardUI.InitialCard(bc);
         BattleCardArray.GetInstance().myCards.Add(bc);
+    }
+
+    public void UseToxin()
+    {
+        if(++toxin == 3)
+        {
+            toxin = 0;
+            this.health -= 1000 - this.spellDefense;
+        }
+    }
+
+    public int UseLatentDamage()
+    {
+        this.latentDamage *= 2;
+
+        return (int)this.latentDamage;
     }
 
     // 判断是否存活

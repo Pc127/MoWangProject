@@ -32,11 +32,16 @@ public class BattleUI : MonoBehaviour
     // 战斗卡牌的perfab
     public GameObject battleCardPerfab;
 
+    // 上次使用的卡牌 用来作为 空白符咒的逻辑
+    public BattleCard lastCard;
     // 使用的卡牌
     public BattleCard currentCard;
 
     // 战斗的怪物
     private Monster myMonster;
+
+    // 再进行一次移动的Ui
+    public GameObject moveAgainShow;
 
     //骰子
     public GameObject dice;
@@ -87,6 +92,9 @@ public class BattleUI : MonoBehaviour
         // 读取卡牌序列 并显示
         foreach (BattleCard bc in BattleCardArray.GetInstance().myCards)
         {
+            // 冷却的卡牌不参与展示
+            if (bc.active == false)
+                continue;
             // 初始化卡牌
             GameObject obj = Instantiate(battleCardPerfab);
             obj.transform.parent = battleCardShow.transform;
@@ -116,19 +124,56 @@ public class BattleUI : MonoBehaviour
         StartBattle();
     }
 
+    // 逃跑会受到伤害
+    public void RunAway()
+    {
+        Battle.StartBattle(myMonster, new RunAway());
+        // 2s后结束游戏
+        EndBattle();
+    }
+
+    // 闪避不会收到伤害
+    public void Dodge()
+    {
+        EndBattle();
+    }
+
+    // 再移动
+    public void ShowMoveAgain()
+    {
+        this.moveAgainShow.SetActive(true);
+    }
+
+    public void MoveAgain(int index)
+    {
+        StartCoroutine(MoveAgainCoroutine(index, 1.2f));
+    }
 
     public void StartBattle()
     {
         Battle.StartBattle(myMonster, currentCard);
         // 2s后结束游戏
+        this.lastCard = currentCard;
         if (!myMonster.live)
             EndBattle();
     }
 
     public void EndBattle()
     {
+        // 战斗结束buff触发
+        BuffArray.GetInstance().AfterBattle();
         // 2秒后结束游戏
-        StartCoroutine(EndBattleCoroutine(2));
+        StartCoroutine(EndBattleCoroutine(1.2F));
+    }
+
+    IEnumerator MoveAgainCoroutine(int index, float sec)
+    {
+
+        yield return new WaitForSeconds(sec);
+
+        this.show.SetActive(false);
+        GamePlay.GetInstance().heroMove.MakeMove(index);
+        StopCoroutine(this.infoCoroutine);
     }
 
     // 结束战斗
@@ -141,6 +186,7 @@ public class BattleUI : MonoBehaviour
         StopCoroutine(this.infoCoroutine);
     }
 
+    // 更新怪物信息
     IEnumerator InfoPreFrame()
     {
         while (true)

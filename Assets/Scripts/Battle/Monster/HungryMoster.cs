@@ -6,11 +6,11 @@ public class HungryMoster : Monster
 {
     public HungryMoster()
     {
-        this.physicalAttack = 100;
+        this.physicalAttack = 15;
         this.physicalDefense = 5;
         this.spellAttack = 0;
         this.spellDefense = 5;
-        this.health = 1000;
+        this.health = 40;
 
         this.name = "饿兽";
         this.explaination = "凶猛的野兽";
@@ -21,6 +21,7 @@ public class HungryMoster : Monster
     {
         BattleInfo info = new BattleInfo();
         info.spellAttack = this.spellAttack;
+        this.health += 20;
         return info; ;
     }
 }

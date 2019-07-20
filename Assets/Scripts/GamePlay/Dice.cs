@@ -23,6 +23,9 @@ public class Dice : MonoBehaviour
 
         Debug.Log("Dice" + index);
 
+        // dice buff
+        BuffArray.GetInstance().Dice(index);
+
         GamePlay.GetInstance().MakeMove(index);
     }
 

@@ -42,4 +42,49 @@ public class BuffArray
         }
     }
 
+    // 在一轮结束后
+    public void RoundOver()
+    {
+        foreach(var buff in myBuffs)
+        {
+            buff.Value.RoundOver();
+        }
+    }
+
+    // 在与怪物战斗之后
+    public void AfterBattle()
+    {
+        foreach (var buff in myBuffs)
+        {
+            buff.Value.AfterBattle();
+        }
+    }
+
+    // 杀死一只魔物之后
+    public void KillMonster()
+    {
+        foreach (var buff in myBuffs)
+        {
+            buff.Value.KillMonster();
+        }
+    }
+
+    // 每行走一格时候
+    public void MoveStep(int stepCount)
+    {
+        foreach (var buff in myBuffs)
+        {
+            buff.Value.MoveStep(stepCount);
+        }
+    }
+
+    // 每掷出一个骰子点数时
+    public void Dice(int diceIndex)
+    {
+        foreach (var buff in myBuffs)
+        {
+            buff.Value.Dice(diceIndex);
+        }
+    }
+
 }

@@ -53,7 +53,12 @@ public class HeroMove : MonoBehaviour
         {
             ++this.heroPos;
             if (heroPos == this.chessBoard.cellCount)
+            {
                 heroPos = 0;
+                // 一轮结束触发Buff
+                BuffArray.GetInstance().RoundOver();
+            }
+                
 
             // 如果遇到怪物就在这里停顿
             if (EventManager.GetInstance().MeetMonster(heroPos))

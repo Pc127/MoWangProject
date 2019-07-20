@@ -50,7 +50,7 @@ public class BuffFactory
         List<Buff> levelTwo = new List<Buff>();
         levelTwo.Add(new SoulOfMonster(10));
         levelTwo.Add(new LuckTouch(20));
-        levelTwo.Add(new PrickyArmour(10));
+        levelTwo.Add(new PrickyArmour(5));
         levelTwo.Add(new Harvest(5));
 
         // 等级3的buff

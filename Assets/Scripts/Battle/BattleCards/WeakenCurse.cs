@@ -7,7 +7,7 @@ public class WeakenCurse : BattleCard
     public WeakenCurse()
     {
         this.name = "阿尔德谬的弱小诅咒符卡";
-        this.explaination = "削减敌方30%攻击（骰子点数>3） ";
+        this.explaination = "削减敌方30%物理&魔法攻击（骰子点数>3） ";
         this.needDice = true;
         this.diceIndex = 0;
 

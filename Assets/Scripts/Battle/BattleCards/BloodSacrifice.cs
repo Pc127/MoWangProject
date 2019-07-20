@@ -19,7 +19,8 @@ public class BloodSacrifice : BattleCard
         BattleInfo info = new BattleInfo();
 
         info.selfInjury = 2;
-        info.demageRevert = 5;
+        info.physicalDemageRevert = 5;
+        info.spellDemageRevert = 5;
 
         return info;
     }

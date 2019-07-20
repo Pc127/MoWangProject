@@ -6,11 +6,11 @@ public class BleakDog : Monster
 {
     public BleakDog()
     {
-        this.physicalAttack = 30;
-        this.physicalDefense = 30;
+        this.physicalAttack = 20;
+        this.physicalDefense = 5;
         this.spellAttack = 0;
-        this.spellDefense = 0;
-        this.health = 100;
+        this.spellDefense = 5;
+        this.health = 50;
 
         this.name = "黑教之犬";
         this.explaination = "凶猛的恶兽";
@@ -21,6 +21,9 @@ public class BleakDog : Monster
     {
         BattleInfo info = new BattleInfo();
         info.physicalAttack = this.physicalAttack;
-        return info; ;
+        Debug.Log("黑教之犬攻击");
+
+        this.physicalAttack += 10;
+        return info; 
     }
 }

@@ -34,6 +34,7 @@ public class BattleCardUI : MonoBehaviour
 
     public void OnChoose()
     {
+        this.mycard.active = false;
         Debug.Log("出牌" + mycard.name);
         EventManager.GetInstance().battleUI.UseCard(mycard);
         // 卡牌已出

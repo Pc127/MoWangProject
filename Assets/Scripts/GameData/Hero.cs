@@ -9,11 +9,10 @@ public class Hero
     {
         health = 100;
         spellAttack = 10;
-        spellDefense = 10;
+        spellDefense = 0;
         physicalAttack = 20;
-        physicalDefense = 10;
+        physicalDefense = 0;
 
-        strikeBack = 0;
         bloodCeremony = false;
         gloryBlessing = false;
 
@@ -47,7 +46,7 @@ public class Hero
     // 血量
     public int health;
 
-    // 反击
+    // 反击 包括物理与魔法反击
     public int strikeBack;
 
     public bool bloodCeremony;

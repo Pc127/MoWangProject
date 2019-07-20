@@ -31,4 +31,13 @@ public class BattleCardArray
     {
         myCards.Add(bc);
     }
+
+    // 重新刷新所有的卡牌
+    public void Reflash()
+    {
+        foreach(var card in myCards)
+        {
+            card.active = true;
+        }
+    }
 }

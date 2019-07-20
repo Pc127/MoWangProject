@@ -7,7 +7,7 @@ public class BrightSpear : BattleCard
     public BrightSpear()
     {
         this.name = "光芒圣枪";
-        this.explaination = "进行一次魔法攻击（魔攻*0.5*骰子点数）";
+        this.explaination = "进行一次魔法攻击（魔攻*(2+点数)）";
         this.needDice = true;
         this.diceIndex = 0;
 
@@ -20,7 +20,7 @@ public class BrightSpear : BattleCard
     {
         BattleInfo info = new BattleInfo();
         // 魔法攻击基于掷骰子的点数
-        info.spellAttack = (int)(Hero.GetInstance().spellAttack * (2 + this.diceIndex * 1));
+        info.spellAttack = (int)(Hero.GetInstance().spellAttack * (2 + this.diceIndex));
 
         return info;
     }

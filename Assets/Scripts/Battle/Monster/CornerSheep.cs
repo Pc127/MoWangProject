@@ -6,11 +6,11 @@ public class CornerSheep : Monster
 {
     public CornerSheep()
     {
-        this.physicalAttack = 0;
-        this.physicalDefense = 30000;
-        this.spellAttack = 100;
-        this.spellDefense = 0;
-        this.health = 1000;
+        this.physicalAttack = 20;
+        this.physicalDefense = 10;
+        this.spellAttack = 0;
+        this.spellDefense = 10;
+        this.health = 100;
 
         this.name = "绒毛犄角";
         this.explaination = "看似可爱的恶魔生物";
@@ -20,7 +20,15 @@ public class CornerSheep : Monster
     public override BattleInfo MakeAttack()
     {
         BattleInfo info = new BattleInfo();
-        info.spellAttack = this.spellAttack;
+        info.physicalAttack = this.physicalAttack;
+
+        // 30%概率 吸血10%
+        if (Random.Range(0, 1) < 0.3)
+        {
+            int count = (int)(Hero.GetInstance().health * 0.1);
+            Hero.GetInstance().health -= count;
+            this.health += count;
+        }
         return info; ;
     }
 }

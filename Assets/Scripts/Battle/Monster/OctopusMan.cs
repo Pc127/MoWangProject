@@ -6,11 +6,11 @@ public class OctopusMan : Monster
 {
     public OctopusMan()
     {
-        this.physicalAttack = 100;
-        this.physicalDefense = 30;
-        this.spellAttack = 0;
+        this.physicalAttack = 15;
+        this.physicalDefense = 50;
+        this.spellAttack = 15;
         this.spellDefense = 30;
-        this.health = 500;
+        this.health = 200;
 
         this.name = "章鱼人";
         this.explaination = "物理魔法，混合攻击";
@@ -23,6 +23,9 @@ public class OctopusMan : Monster
         // 普通物理攻击
         info.physicalAttack = this.physicalAttack;
         info.spellAttack = this.spellAttack;
+
+        this.physicalAttack += 5;
+        this.spellAttack += 5;
         return info; ;
     }
 }

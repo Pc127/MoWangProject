@@ -7,10 +7,10 @@ public class BleakGhost : Monster
     public BleakGhost()
     {
         this.physicalAttack = 0;
-        this.physicalDefense = 30000;
-        this.spellAttack = 100;
+        this.physicalDefense = 9999;
+        this.spellAttack = 20;
         this.spellDefense = 0;
-        this.health = 1000;
+        this.health = 20;
 
         this.name = "凄色之幽";
         this.explaination = "纯粹的魔法生物";

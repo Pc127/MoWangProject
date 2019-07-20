@@ -20,6 +20,9 @@ public class BattleCard
     // 骰子点数
     public int diceIndex;
 
+    // 活跃状态
+    public bool active = true;
+
     public virtual BattleInfo InvokeCard(Monster monster)
     {
         BattleInfo info = new BattleInfo();

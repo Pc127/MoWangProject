@@ -10,17 +10,18 @@ public class BlackBarrier : Monster
         this.physicalDefense = 0;
         this.spellAttack = 0;
         this.spellDefense = 0;
-        this.health = 3000;
+        this.health = 500;
 
         this.name = "黑石壁垒";
-        this.explaination = "坚硬的魔法生物";
+        this.explaination = "坚硬的魔法生物，会反弹伤害";
         this.story = "阻挡在森林入口的壁垒，没有人知道它从哪儿来的，也没有人想搞清楚它是什么，因为没有人想靠近西边的森林";
     }
 
     public override BattleInfo MakeAttack()
     {
         BattleInfo info = new BattleInfo();
-        info.spellAttack = this.spellAttack;
+        info.physicalDemageRevert = 0.3f;
+        info.spellDemageRevert = 0.3f;
         return info; ;
     }
 }
