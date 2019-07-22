@@ -20,9 +20,9 @@ public class MonsterEvent
     public Monster monster;
 }
 
-public class MonsterEvents
+public class MonsterEventMap
 {
-    public MonsterEvents(int count)
+    public MonsterEventMap(int count)
     {
         this.count = count;
         // 创建相应数量的buff

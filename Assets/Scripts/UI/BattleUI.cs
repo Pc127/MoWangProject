@@ -50,6 +50,10 @@ public class BattleUI : MonoBehaviour
     // 更新怪物信息的协程
     private Coroutine infoCoroutine;
 
+    public GameObject runAway;
+
+    public GameObject safeExit;
+
     void Start()
     {
         EventManager.GetInstance().battleUI = this;
@@ -58,6 +62,10 @@ public class BattleUI : MonoBehaviour
 
     public void BattleVsMonster(Monster monster)
     {
+        // 逃跑选项
+        runAway.SetActive(true);
+        safeExit.SetActive(false);
+
         // 显示战斗场景
         show.SetActive(true);
 
@@ -65,6 +73,8 @@ public class BattleUI : MonoBehaviour
         myMonster = monster;
 
         this.infoCoroutine = StartCoroutine(InfoPreFrame());
+
+        EventManager.GetInstance().logUI.ShowText("遭遇了魔物" + monster.name);
 
         // 展示卡牌
         ShowBattleCards();
@@ -99,7 +109,8 @@ public class BattleUI : MonoBehaviour
             GameObject obj = Instantiate(battleCardPerfab);
             obj.transform.parent = battleCardShow.transform;
             BattleCardUI bu = obj.GetComponent<BattleCardUI>();
-            bu.InitialCard(bc, index);
+            // 可以使用的卡牌
+            bu.InitialCard(bc, index, true);
             obj.SetActive(true);
             obj.transform.localScale = new Vector3(1, 1, 1);
             obj.gameObject.transform.localPosition = new Vector3(index * 300, 0, 0);
@@ -156,8 +167,11 @@ public class BattleUI : MonoBehaviour
         this.lastCard = currentCard;
         if (!myMonster.live)
             EndBattle();
+        this.safeExit.SetActive(true);
+        this.runAway.SetActive(false);
     }
 
+    // 安全撤离 safe exit
     public void EndBattle()
     {
         // 战斗结束buff触发

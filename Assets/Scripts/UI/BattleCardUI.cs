@@ -20,11 +20,14 @@ public class BattleCardUI : MonoBehaviour
 
     private BattleCard mycard;
 
-    public void InitialCard(BattleCard bc, int index)
+    public void InitialCard(BattleCard bc, int index, bool use)
     {
         this.mycard = bc;
         this.cardIndex = index;
-        this.button.onClick.AddListener(OnChoose);
+        if (use)
+            this.button.onClick.AddListener(OnUse);
+        else
+            this.button.onClick.AddListener(OnChoose);
 
         this.image.sprite = Resources.Load<Sprite>("BattleCard/" + mycard.name);
 
@@ -32,12 +35,43 @@ public class BattleCardUI : MonoBehaviour
         this.explaination.text = mycard.explaination;
     }
 
-    public void OnChoose()
+    public void OnUse()
     {
         this.mycard.active = false;
         Debug.Log("出牌" + mycard.name);
+        EventManager.GetInstance().logUI.ShowText("使用了战斗牌" + mycard.name);
+
+        StartCoroutine(UseCard(1.2f));
+    }
+
+    public void OnChoose()
+    {
+        Debug.Log("出牌" + mycard.name);
+        EventManager.GetInstance().logUI.ShowText("选择了战斗牌" + mycard.name);
+
+        StartCoroutine(ChooseCard(1.2f));
+    }
+
+    IEnumerator UseCard(float sec)
+    {
+
+        yield return new WaitForSeconds(sec);
+
         EventManager.GetInstance().battleUI.UseCard(mycard);
         // 卡牌已出
         this.gameObject.SetActive(false);
+        
+    }
+
+    IEnumerator ChooseCard(float sec)
+    {
+        yield return new WaitForSeconds(sec);
+
+        BattleCardArray.GetInstance().myCards.Add(this.mycard);
+        // 卡牌已出
+        EventManager.GetInstance().chooseCardUI.show.SetActive(false);
+
+        // 进入移动阶段
+        GamePlay.GetInstance().ShowMoveDice();
     }
 }

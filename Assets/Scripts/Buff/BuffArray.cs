@@ -23,12 +23,13 @@ public class BuffArray
     }
 
     // 保存当前身上的buff
-    private Dictionary<string ,Buff> myBuffs;
+    public Dictionary<string ,Buff> myBuffs;
 
 
     // 加入一个buff
     public void AddBuff(string name, Buff buff)
     {
+        EventManager.GetInstance().logUI.ShowText("获得了buff" + name);
         // 获取buff时
         buff.OnAcquire();
 

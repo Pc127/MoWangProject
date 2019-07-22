@@ -8,7 +8,6 @@ public class EventManager
     private EventManager()
     {
         NewSceneUpdate();
-       // GamePlay.GetInstance().eventManager = this;
     }
 
     public void NewSceneUpdate()
@@ -16,6 +15,7 @@ public class EventManager
         // 获取当前的buffs
         currentBuffs = GamePersist.GetInstance().GetBuffEvents();
         currentMonsters = GamePersist.GetInstance().GetMonsterEvents();
+        currentCards = GamePersist.GetInstance().GetBattleCardMap();
     }
 
     // 单例类
@@ -31,10 +31,13 @@ public class EventManager
     }
 
     // 当前关卡的buff信息
-    private BuffEvents currentBuffs;
+    private BuffEventMap currentBuffs;
 
     // 当前关卡的战斗信息
-    private MonsterEvents currentMonsters;
+    private MonsterEventMap currentMonsters;
+
+    // 当前关卡的卡牌信息
+    private BattleCardMap currentCards;
 
     // buff相关的ui逻辑
     public BuffUI buffUI;
@@ -45,6 +48,12 @@ public class EventManager
     // 获得卡牌ui
     public GetCardUI getCardUI;
 
+    // 选择卡牌ui
+    public ChooseCardUI chooseCardUI;
+
+    // Log
+    public LogUI logUI;
+
     // 触发事件
     public void InvokeEvent()
     {
@@ -53,13 +62,20 @@ public class EventManager
         // 先检查怪物
         Monster m = currentMonsters.GetMonster(heroPos);
 
-        Debug.Log(m);
-
         if(m != null)
         {
             GamePlay.GetInstance().monsterLoad.LoadMonster(m.name, heroPos);
             // 触发战斗
             battleUI.BattleVsMonster(m);
+            return;
+        }
+
+        BattleCardEvent cardEvent = currentCards.GetBattleCardEvent(heroPos);
+
+        if(cardEvent != null)
+        {
+            // 调用卡牌选择事件
+            chooseCardUI.MakeCardChoose(cardEvent.one, cardEvent.two);
             return;
         }
 

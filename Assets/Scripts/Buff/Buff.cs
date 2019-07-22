@@ -67,4 +67,9 @@ public class Buff
 
     }
 
+    public virtual Buff Clone()
+    {
+        return MemberwiseClone() as Buff;
+    }
+
 }

@@ -26,6 +26,8 @@ public class Dice : MonoBehaviour
         // dice buff
         BuffArray.GetInstance().Dice(index);
 
+        EventManager.GetInstance().logUI.ShowText("你掷出了" + index);
+
         GamePlay.GetInstance().MakeMove(index);
     }
 

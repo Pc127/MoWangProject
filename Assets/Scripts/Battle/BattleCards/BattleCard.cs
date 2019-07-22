@@ -29,4 +29,9 @@ public class BattleCard
 
         return info;
     }
+
+    public virtual BattleCard Clone()
+    {
+        return MemberwiseClone() as BattleCard;
+    }
 }
