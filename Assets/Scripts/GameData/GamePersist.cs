@@ -189,6 +189,7 @@ public class GamePersist
 
     private void InitBattleCard()
     {
+        // 初始卡牌
         // 卡牌加入一张跳劈卡
         BattleCardArray.GetInstance().AddBattleCard(new JumpCut());
         BattleCardArray.GetInstance().AddBattleCard(new Fireball());
@@ -207,6 +208,7 @@ public class GamePersist
         };
 
         // 全部卡牌事件都变成 火球 跳劈
+        // i代表格数
         for(int i = 1; i< 60; i+=2)
         {
             this.sceneBattleCard[0].myCardEvent[i] = cardEvent;

@@ -9,9 +9,9 @@ public class Hero
     {
         health = 100;
         spellAttack = 10;
-        spellDefense = 0;
+        spellDefense = 10;
         physicalAttack = 20;
-        physicalDefense = 0;
+        physicalDefense = 10;
 
         bloodCeremony = false;
         gloryBlessing = false;
