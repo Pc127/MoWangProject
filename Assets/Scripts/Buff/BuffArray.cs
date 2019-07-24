@@ -34,8 +34,11 @@ public class BuffArray
         buff.OnAcquire();
 
         // 加入一个buff
-        if(!myBuffs.ContainsKey(name))
+        if (!myBuffs.ContainsKey(name))
+        {
             myBuffs.Add(name, buff);
+            GamePlay.GetInstance().showBuffUI.AddBuff(myBuffs[name]);
+        }
         else
         {
             myBuffs[name].Superposition(buff);

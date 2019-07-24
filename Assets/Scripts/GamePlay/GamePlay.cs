@@ -19,6 +19,8 @@ public class GamePlay
     // 怪物加载
     public MonsterLoad monsterLoad;
 
+    public ShowBuffUI showBuffUI;
+
     // 私有构造函数
     private GamePlay()
     {

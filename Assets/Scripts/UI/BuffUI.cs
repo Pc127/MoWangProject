@@ -17,6 +17,9 @@ public class BuffUI : MonoBehaviour
     // 保存是否展示ui
     public GameObject show;
 
+    // 两个名字
+    public Text name1;
+    public Text name2;
     // 两个属性
     public Text attribute1;
 
@@ -43,12 +46,22 @@ public class BuffUI : MonoBehaviour
     {
         currentEvent = be;
 
-        // 更新两个纹理
-        sp1.sprite = Resources.Load<Sprite>("Buff/" + currentEvent.buffOne.name);
-        sp2.sprite = Resources.Load<Sprite>("Buff/" + currentEvent.buffTwo.name);
+        foreach (var item in Resources.LoadAll<Sprite>("Buff/buff"))
+        {
+            if (item.name == currentEvent.buffOne.name)
+            {
+                this.sp1.sprite = item;
+            }
+            else if(item.name == currentEvent.buffTwo.name)
+            {
+                this.sp2.sprite = item;
+            }
+        };
 
-        attribute1.text = currentEvent.buffOne.attribute;
-        attribute2.text = currentEvent.buffTwo.attribute;
+        name1.text = currentEvent.buffOne.name;
+        name2.text = currentEvent.buffTwo.name;
+        attribute1.text = currentEvent.buffOne.Attribute();
+        attribute2.text = currentEvent.buffTwo.Attribute();
 
         explain1.text = currentEvent.buffOne.explaination;
         explain2.text = currentEvent.buffTwo.explaination;

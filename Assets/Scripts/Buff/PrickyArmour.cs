@@ -10,7 +10,12 @@ public class PrickyArmour : Buff
         this.point = point;
         this.explaination = "远古光明教会为骑士们特别打造的盔甲，表面覆满了细小的尖刺，这种尖刺不仅会对物理的攻击进行反弹，也能反弹魔法的攻击。可惜尖刺盔甲的打造工艺已经失传，只有很少的数量还流传于世";
         this.name = "尖刺盔甲";
-        this.attribute = "反弹" + point + "%魔物攻击";
+    }
+
+
+    public override string Attribute()
+    {
+        return "反弹" + point + "%魔物攻击";
     }
 
 

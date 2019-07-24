@@ -10,7 +10,11 @@ public class LuckTouch : Buff
         this.point = point;
         this.explaination = "圣殿骰子具有被光明圣教祝福的力量，只要洞悉了圣骰的神秘，便可以在掷出特殊数字时获得力量";
         this.name = "幸运触碰";
-        this.attribute = "每次掷到六时+" + point + "魔法攻击";
+    }
+
+    public override string Attribute()
+    {
+        return "每次掷到六时+" + point + "魔法攻击";
     }
 
     public override void Dice(int diceIndex)

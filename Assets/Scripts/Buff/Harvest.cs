@@ -10,7 +10,11 @@ public class Harvest : Buff
         this.point = point;
         this.explaination = "世界中散布着从“世界意志”流溢而来的以太，在周而复始的循环战斗中，人的灵魂可以逐渐洞悉世界的本质，并从其中获取到永久的力量";
         this.name = "收获";
-        this.attribute = "每走一圈+" + point + "全属性";
+    }
+
+    public override string Attribute()
+    {
+        return "每走一圈+" + point + "全属性";
     }
 
     public override void RoundOver()

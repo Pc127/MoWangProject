@@ -10,7 +10,10 @@ public class BattleMemory : Buff
         this.point = point;
         this.explaination = "对于一个武者，战斗记忆比他的剑更加锋利";
         this.name = "战斗记忆";
-        this.attribute = "+" + point + "物理攻击";
+    }
+    public override string Attribute()
+    {
+        return "+" + point + "物理攻击"; ;
     }
 
 

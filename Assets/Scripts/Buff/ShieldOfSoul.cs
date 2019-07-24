@@ -10,9 +10,14 @@ public class ShieldOfSoul : Buff
         this.point = point;
         this.explaination = "用以太为介质的魔法攻击的对象是心灵，古代的贤者，通过修炼自己的心灵来使其不受魔法的侵扰";
         this.name = "心灵壁垒";
-        this.attribute = "+" + point + "魔法防御";
     }
 
+
+    public override string Attribute()
+    {
+        return  "+" + point + "魔法防御";
+
+    }
 
     public override void OnAcquire()
     {

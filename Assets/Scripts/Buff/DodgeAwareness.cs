@@ -10,7 +10,12 @@ public class DodgeAwareness : Buff
         this.point = point;
         this.explaination = "战场上存活的老兵，比起战斗，似乎更注重保护自己";
         this.name = "闪避意识";
-        this.attribute = "+" + point + "物理防御";
+    }
+
+
+    public override string Attribute()
+    {
+        return "+" + point + "物理防御";
     }
 
 

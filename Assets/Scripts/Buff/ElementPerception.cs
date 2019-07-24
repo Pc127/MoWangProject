@@ -9,10 +9,13 @@ public class ElementPerception : Buff
         this.level = 1;
         this.point = point;
         this.explaination = "以太的力量来源于“世界精神”，逸散于整个大气，与人类的灵魂拥有相同的质料——《光芒圣典》记载";
-        this.name = "元素感知";
-        this.attribute = "+" + point + "魔法攻击";
+        this.name = "元素感触";
     }
 
+    public override string Attribute()
+    {
+        return "+" + point + "魔法攻击";
+    }
 
     public override void OnAcquire()
     {

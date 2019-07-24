@@ -14,7 +14,9 @@ public class Buff
     public string name;
 
     // 属性说明
-    public string attribute;
+    public virtual string Attribute() {
+        return null;
+    }
 
     // 文案说明
     public string explaination;
