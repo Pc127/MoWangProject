@@ -157,6 +157,7 @@ public class BattleUI : MonoBehaviour
 
     public void MoveAgain(int index)
     {
+        this.moveAgainShow.SetActive(false);
         StartCoroutine(MoveAgainCoroutine(index, 1.2f));
     }
 
