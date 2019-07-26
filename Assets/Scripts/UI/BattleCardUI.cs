@@ -58,6 +58,8 @@ public class BattleCardUI : MonoBehaviour
         yield return new WaitForSeconds(sec);
 
         EventManager.GetInstance().battleUI.UseCard(mycard);
+        // 使用完 一张牌以后 更新牌的堆叠顺序
+        EventManager.GetInstance().battleUI.ShowBattleCards();
         // 卡牌已出
         this.gameObject.SetActive(false);
         

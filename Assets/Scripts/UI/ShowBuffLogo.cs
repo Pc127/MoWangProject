@@ -14,11 +14,6 @@ public class ShowBuffLogo : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     public Text text;
 
-    private void Start()
-    {
-        buff = new BattleMemory(5);
-        InitBuff(buff);
-    }
 
     public void InitBuff(Buff buff)
     {

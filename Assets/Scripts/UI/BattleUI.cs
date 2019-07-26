@@ -54,6 +54,9 @@ public class BattleUI : MonoBehaviour
 
     public GameObject safeExit;
 
+    // 卡牌间距
+    private int cardInterval = 300;
+
     void Start()
     {
         EventManager.GetInstance().battleUI = this;
@@ -235,5 +238,19 @@ public class BattleUI : MonoBehaviour
         {
             StartBattle();
         }
+    }
+
+    public void MoveCard()
+    {
+
+    }
+
+    IEnumerator MoveCardCo()
+    {
+        int distant = 0;
+        while(distant!= 300){
+            yield return new WaitForSeconds(0.2f);
+        }
+        
     }
 }
