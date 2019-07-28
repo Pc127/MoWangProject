@@ -92,20 +92,10 @@ public class Battle
         int monsterCount = monsterPhysicalDemage + monsterSpellDemage + heroRevert - monsterBloodSuck;
         monster.health -= monsterCount;
   
-        if (monster.health <= 0)
-        {
-            monster.health = 0;
-            MonsterDie(monster);
-        }
         // 英雄考虑 自己伤害加深 与 自身直接伤害
         int heroCount = (int)((heroPhysicalDemage + heroSpellDemage + heroInfo.selfPhysicalDemage) * (1 + heroInfo.selfInjury) + monsterRevert - heroBloodSuck);
         hero.health -= heroCount;
-        if(hero.health <= 0)
-        {
-            hero.health = 0;
-            HeroDie();
-        }
-
+        
         string heroState;
         if(heroCount > 0)
         {
@@ -130,8 +120,17 @@ public class Battle
 
         EventManager.GetInstance().logUI.ShowText("英雄收到了" + heroCount + heroState + ", " + "魔物受到了" + monsterCount + monsterState);
 
-        
+        if (hero.health <= 0)
+        {
+            hero.health = 0;
+            HeroDie();
+        }
 
+        if (monster.health <= 0)
+        {
+            monster.health = 0;
+            MonsterDie(monster);
+        }
         Debug.Log("战斗完英雄血量" + hero.health);
     }
 

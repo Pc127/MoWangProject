@@ -20,6 +20,7 @@ public class YouDie : MonoBehaviour
 
     public void HeroDie()
     {
+        this.show.SetActive(true);
         // 游戏失败 几秒后返回主菜单
         StartCoroutine(HeroDieCo());
     }
