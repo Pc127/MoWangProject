@@ -12,6 +12,7 @@ public class BattleUI : MonoBehaviour
     public Image monsterImg;
 
     public Text monsterText;
+    public Text monsterStroy;
 
     public Text monsterName;
 
@@ -213,6 +214,7 @@ public class BattleUI : MonoBehaviour
             monsterImg.sprite = Resources.Load<Sprite>("Monster/" + myMonster.name);
             monsterName.text = myMonster.name;
             monsterText.text = myMonster.explaination;
+            monsterStroy.text = myMonster.story;
 
             // 更新数值显示
             physicalAttack.text = "" + myMonster.physicalAttack;

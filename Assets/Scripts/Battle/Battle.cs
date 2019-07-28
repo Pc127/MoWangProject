@@ -106,7 +106,29 @@ public class Battle
             HeroDie();
         }
 
-        EventManager.GetInstance().logUI.ShowText("英雄收到了" + heroCount + "伤害," + "魔物受到了" + monsterCount + "伤害");
+        string heroState;
+        if(heroCount > 0)
+        {
+            heroState = "伤害";
+        }
+        else
+        {
+            heroState = "回复";
+            heroCount *= -1;
+        }
+
+        string monsterState;
+        if (monsterCount > 0)
+        {
+            monsterState = "伤害";
+        }
+        else
+        {
+            monsterState = "回复";
+            monsterCount *= -1;
+        }
+
+        EventManager.GetInstance().logUI.ShowText("英雄收到了" + heroCount + heroState + ", " + "魔物受到了" + monsterCount + monsterState);
 
         
 
