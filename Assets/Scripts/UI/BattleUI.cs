@@ -57,6 +57,7 @@ public class BattleUI : MonoBehaviour
 
     // 卡牌间距
     private int cardInterval = 300;
+    private int cardCount;
 
     void Start()
     {
@@ -90,6 +91,7 @@ public class BattleUI : MonoBehaviour
         battleCardShow.SetActive(true);
 
         int index = 0;
+        cardCount = 0;
         // 删除所有子节点
         foreach (Transform child in battleCardShow.transform)
         {
@@ -102,6 +104,7 @@ public class BattleUI : MonoBehaviour
         }
 
         index = 0;
+        this.battleCardShow.transform.localPosition = new Vector3(-700, -350, 0);
 
         // 读取卡牌序列 并显示
         foreach (BattleCard bc in BattleCardArray.GetInstance().myCards)
@@ -120,6 +123,7 @@ public class BattleUI : MonoBehaviour
             obj.gameObject.transform.localPosition = new Vector3(index * 300, 0, 0);
             Debug.Log("加载一张卡牌");
             ++index;
+            cardCount++;
         }
     }
 
@@ -242,15 +246,22 @@ public class BattleUI : MonoBehaviour
         }
     }
 
-    public void MoveCard()
+    public void MoveCard(bool forward)
     {
-
+        StartCoroutine(MoveCardCo(forward));
     }
 
-    IEnumerator MoveCardCo()
+    IEnumerator MoveCardCo(bool forward)
     {
+        //if (forward)
+            //this.battleCardShow.transform.localPosition.x;
         int distant = 0;
         while(distant!= 300){
+            distant += 60;
+            if(forward)
+                this.battleCardShow.transform.localPosition += new Vector3(60, 0, 0);
+            else
+                this.battleCardShow.transform.localPosition -= new Vector3(60, 0, 0);
             yield return new WaitForSeconds(0.2f);
         }
         

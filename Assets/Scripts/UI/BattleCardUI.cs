@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class BattleCardUI : MonoBehaviour
+public class BattleCardUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public Image image;
 
@@ -15,6 +16,10 @@ public class BattleCardUI : MonoBehaviour
 
     public Button button;
 
+    public Text stroy;
+
+    public GameObject storyShow;
+
     // 在manager中的数字索引
     public int cardIndex;
 
@@ -24,6 +29,7 @@ public class BattleCardUI : MonoBehaviour
     {
         this.mycard = bc;
         this.cardIndex = index;
+        this.stroy.text = bc.story;
         if (use)
             this.button.onClick.AddListener(OnUse);
         else
@@ -75,5 +81,15 @@ public class BattleCardUI : MonoBehaviour
 
         // 进入移动阶段
         GamePlay.GetInstance().ShowMoveDice();
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        this.storyShow.SetActive(true);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        this.storyShow.SetActive(false);
     }
 }

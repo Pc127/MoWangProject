@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class YouDie : MonoBehaviour
 {
+    public GameObject show;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,5 +21,12 @@ public class YouDie : MonoBehaviour
     public void HeroDie()
     {
         // 游戏失败 几秒后返回主菜单
+        StartCoroutine(HeroDieCo());
+    }
+
+    IEnumerator HeroDieCo()
+    {
+        yield return new WaitForSeconds(3.0f);
+        SceneManager.LoadScene("BadEndOne");
     }
 }

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class GetCardUI : MonoBehaviour
 {
     // 获得卡牌的文本说明
-    public Text text;
+    // public Text text;
 
     // 显示
     public GameObject show;
@@ -22,6 +22,8 @@ public class GetCardUI : MonoBehaviour
 
     // 按钮
     public Button button;
+
+    public Text story;
 
     // 战斗牌
     private BattleCard mycard;
@@ -42,6 +44,7 @@ public class GetCardUI : MonoBehaviour
 
         this.cardName.text = mycard.name;
         this.explaination.text = mycard.explaination;
+        this.story.text = bc.story;
     }
 
     public void OnClick()
