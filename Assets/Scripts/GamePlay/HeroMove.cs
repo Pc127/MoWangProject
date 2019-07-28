@@ -57,6 +57,7 @@ public class HeroMove : MonoBehaviour
                 heroPos = 0;
                 // 一轮结束触发Buff
                 BuffArray.GetInstance().RoundOver();
+                BattleCardArray.GetInstance().Reflash();
             }
                 
 
