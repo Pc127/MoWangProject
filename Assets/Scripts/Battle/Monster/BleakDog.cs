@@ -14,7 +14,7 @@ public class BleakDog : Monster
 
         this.name = "黑教之犬";
         this.explaination = "凶猛的恶兽";
-        this.story = "黑教把死者的血注入到狗的身体中，并施以黑魔法创造了黑教之犬，它头上长着羊角一样的东西，背上布满眼睛和鬃毛。黑教之犬攻击欲望极强并且数量繁多，它们经常入侵到城镇之中，不分昼夜，教会骑士们虽然早就熟练于对抗它们但是依旧对其头疼不已";
+        this.story = "黑教把死者的血注入到狗的身体中，并施以黑魔法创造了黑教之犬，它头上长着羊角一样的东西，背上布满眼睛和鬃毛。黑教之犬攻击欲望极强并且数量繁多，它们经常入侵到城镇之中，不分昼夜，教会骑士们虽然早就熟练于对抗它们但是依旧对其头疼不已。它会在不断的战斗中增长自己的攻击欲望。";
     }
 
     public override BattleInfo MakeAttack()
@@ -23,7 +23,7 @@ public class BleakDog : Monster
         info.physicalAttack = this.physicalAttack;
         Debug.Log("黑教之犬攻击");
 
-        this.physicalAttack += 10;
+        this.physicalAttack += 2;
         return info; 
     }
 }
