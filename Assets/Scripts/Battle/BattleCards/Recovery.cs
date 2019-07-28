@@ -7,7 +7,7 @@ public class Recovery : BattleCard
     public Recovery()
     {
         this.name = "大回复术";
-        this.explaination = "回复100血量";
+        this.explaination = "回复20血量";
         this.needDice = false;
         this.diceIndex = 0;
 
@@ -20,7 +20,7 @@ public class Recovery : BattleCard
     {
         BattleInfo info = new BattleInfo();
 
-        Hero.GetInstance().health += 100;
+        Hero.GetInstance().health += 20;
 
         return info;
     }
