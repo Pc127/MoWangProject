@@ -192,6 +192,7 @@ public class GamePersist
         // 初始卡牌
         // 卡牌加入一张跳劈卡
         BattleCardArray.GetInstance().AddBattleCard(new JumpCut());
+        BattleCardArray.GetInstance().AddBattleCard(new JumpCut());
         BattleCardArray.GetInstance().AddBattleCard(new Fireball());
         BattleCardArray.GetInstance().AddBattleCard(new Fireball());
         BattleCardArray.GetInstance().AddBattleCard(new MoveAgainCard());
@@ -206,13 +207,55 @@ public class GamePersist
             one = new Fireball(),
             two = new JumpCut()
         };
+        this.sceneBattleCard[0].myCardEvent[11] = cardEvent;
+        this.sceneBattleCard[0].myCardEvent[12] = cardEvent;
+        this.sceneBattleCard[0].myCardEvent[13] = cardEvent;
+        this.sceneBattleCard[0].myCardEvent[15] = cardEvent;
+        this.sceneBattleCard[0].myCardEvent[16] = cardEvent;
+        this.sceneBattleCard[0].myCardEvent[17] = cardEvent;
+        this.sceneBattleCard[0].myCardEvent[29] = cardEvent;
+        this.sceneBattleCard[0].myCardEvent[51] = cardEvent;
+        this.sceneBattleCard[0].myCardEvent[52] = cardEvent;
+        this.sceneBattleCard[0].myCardEvent[53] = cardEvent;
+
+        cardEvent = new BattleCardEvent
+        {
+            one = new MoveAgainCard(),
+            two = new Recovery()
+        };
+        this.sceneBattleCard[0].myCardEvent[18] = cardEvent;
+        this.sceneBattleCard[0].myCardEvent[20] = cardEvent;
+        this.sceneBattleCard[0].myCardEvent[21] = cardEvent;
+        this.sceneBattleCard[0].myCardEvent[22] = cardEvent;
+        this.sceneBattleCard[0].myCardEvent[23] = cardEvent;
+        this.sceneBattleCard[0].myCardEvent[24] = cardEvent;
+        this.sceneBattleCard[0].myCardEvent[25] = cardEvent;
+        this.sceneBattleCard[0].myCardEvent[26] = cardEvent;
+        this.sceneBattleCard[0].myCardEvent[27] = cardEvent;
+        this.sceneBattleCard[0].myCardEvent[28] = cardEvent;
+        this.sceneBattleCard[0].myCardEvent[31] = cardEvent;
+
+        cardEvent = new BattleCardEvent
+        {
+            one = new DoubleEdgeSword(),
+            two = new DodgeCard()
+        };
+        this.sceneBattleCard[0].myCardEvent[40] = cardEvent;
+        this.sceneBattleCard[0].myCardEvent[41] = cardEvent;
+        this.sceneBattleCard[0].myCardEvent[42] = cardEvent;
+        this.sceneBattleCard[0].myCardEvent[43] = cardEvent;
+        this.sceneBattleCard[0].myCardEvent[44] = cardEvent;
+        this.sceneBattleCard[0].myCardEvent[45] = cardEvent;
+        this.sceneBattleCard[0].myCardEvent[46] = cardEvent;
+        this.sceneBattleCard[0].myCardEvent[54] = cardEvent;
+        this.sceneBattleCard[0].myCardEvent[55] = cardEvent;
+        this.sceneBattleCard[0].myCardEvent[56] = cardEvent;
+        this.sceneBattleCard[0].myCardEvent[57] = cardEvent;
+        this.sceneBattleCard[0].myCardEvent[58] = cardEvent;
+        this.sceneBattleCard[0].myCardEvent[59] = cardEvent;
 
         // 全部卡牌事件都变成 火球 跳劈
         // i代表格数
-        for(int i = 1; i< 60; i+=2)
-        {
-            this.sceneBattleCard[0].myCardEvent[i] = cardEvent;
-        }
 
 
     }
@@ -234,14 +277,43 @@ public class GamePersist
 
         levelOne.myBuffs[1] = be1;
         levelOne.myBuffs[2] = be1;
-        levelOne.myBuffs[25] = be1;
+        levelOne.myBuffs[7] = be1;
+        levelOne.myBuffs[48] = be1;
 
-        // 全部卡牌事件都变成 火球 跳劈
-        for (int i = 0; i < 60; i+=2)
+        be1 = new BuffEvent
         {
-            levelOne.myBuffs[i] = be1;
-        }
+            buffOne = new DodgeAwareness(5),
+            buffTwo = new ShieldOfSoul(5)
+        };
+        levelOne.myBuffs[3] = be1;
+        levelOne.myBuffs[8] = be1;
+        levelOne.myBuffs[9] = be1;
+        levelOne.myBuffs[50] = be1;
 
+        be1 = new BuffEvent
+        {
+            buffOne = new Coalescence(2),
+            buffTwo = new Harvest(5)
+        };
+        levelOne.myBuffs[5] = be1;
+        levelOne.myBuffs[10] = be1;
+
+        be1 = new BuffEvent
+        {
+            buffOne = new SoulOfMonster(2),
+            buffTwo = new LuckTouch(5)
+        };
+        levelOne.myBuffs[33] = be1;
+        levelOne.myBuffs[36] = be1;
+
+        be1 = new BuffEvent
+        {
+            buffOne = new PrickyArmour(10),
+            buffTwo = new LuckTouch(5)
+        };
+        levelOne.myBuffs[34] = be1;
+        levelOne.myBuffs[35] = be1;
+        levelOne.myBuffs[38] = be1;
 
     }
 }

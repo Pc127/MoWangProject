@@ -10,7 +10,7 @@ public class OctopusMan : Monster
         this.physicalDefense = 50;
         this.spellAttack = 15;
         this.spellDefense = 30;
-        this.health = 200;
+        this.health = 100;
 
         this.name = "章鱼人";
         this.explaination = "物理魔法，混合攻击";

@@ -10,7 +10,7 @@ public class EyeLimax : Monster
         this.physicalDefense = 60;
         this.spellAttack = 0;
         this.spellDefense = 60;
-        this.health = 250;
+        this.health = 120;
 
         this.name = "蛞蝓加恩";
         this.explaination = "物理攻击，并吸血";

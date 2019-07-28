@@ -10,7 +10,7 @@ public class HungryMoster : Monster
         this.physicalDefense = 5;
         this.spellAttack = 0;
         this.spellDefense = 5;
-        this.health = 40;
+        this.health = 20;
 
         this.name = "饿兽";
         this.explaination = "凶猛的野兽";
@@ -21,7 +21,7 @@ public class HungryMoster : Monster
     {
         BattleInfo info = new BattleInfo();
         info.spellAttack = this.spellAttack;
-        this.health += 20;
+        this.health += 5;
         return info; ;
     }
 }

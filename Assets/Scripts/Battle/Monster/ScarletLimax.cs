@@ -7,10 +7,10 @@ public class ScarletLimax : Monster
     public ScarletLimax()
     {
         this.physicalAttack = 0;
-        this.physicalDefense = 5;
-        this.spellAttack = 30;
-        this.spellDefense = 5;
-        this.health = 50;
+        this.physicalDefense = 2;
+        this.spellAttack = 15;
+        this.spellDefense = 2;
+        this.health =25;
 
         this.name = "猩红蛞蝓";
         this.explaination = "魔法攻击，1倍魔攻，附带生命偷取效果";

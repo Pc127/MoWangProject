@@ -11,7 +11,7 @@ public class SneakMan : Monster
         this.physicalDefense = 5;
         this.spellAttack = 20;
         this.spellDefense = 5;
-        this.health = 100;
+        this.health = 50;
 
         this.name = "蛇人法师外破";
         this.explaination = "蛇人法师，魔法攻击";

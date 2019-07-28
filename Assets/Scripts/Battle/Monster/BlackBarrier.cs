@@ -10,7 +10,7 @@ public class BlackBarrier : Monster
         this.physicalDefense = 0;
         this.spellAttack = 0;
         this.spellDefense = 0;
-        this.health = 500;
+        this.health = 100;
 
         this.name = "黑石壁垒";
         this.explaination = "坚硬的魔法生物，会反弹伤害";

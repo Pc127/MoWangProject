@@ -11,7 +11,7 @@ public class BlackSheep : Monster
         this.physicalDefense = 50;
         this.spellAttack = 0;
         this.spellDefense = 50;
-        this.health = 250;
+        this.health = 120;
 
         this.name = "黑羊崔西";
         this.explaination = "黑色的羊，普通物理攻击";

@@ -10,7 +10,7 @@ public class CornerSheep : Monster
         this.physicalDefense = 10;
         this.spellAttack = 0;
         this.spellDefense = 10;
-        this.health = 100;
+        this.health = 50;
 
         this.name = "绒毛犄角";
         this.explaination = "看似可爱的恶魔生物";
