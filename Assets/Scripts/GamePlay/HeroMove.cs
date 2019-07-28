@@ -51,6 +51,8 @@ public class HeroMove : MonoBehaviour
 
         for(int i = 0; i<stepCount; i++)
         {
+            // 每行动一格调用一次
+            BuffArray.GetInstance().MoveStep(1);
             ++this.heroPos;
             if (heroPos == this.chessBoard.cellCount)
             {
