@@ -53,10 +53,9 @@ public class BattleUI : MonoBehaviour
 
     public GameObject runAway;
 
-    public GameObject safeExit;
 
     // 卡牌间距
-    private int cardInterval = 300;
+    private int cardInterval = 220;
     private int cardCount;
 
     void Start()
@@ -69,7 +68,6 @@ public class BattleUI : MonoBehaviour
     {
         // 逃跑选项
         runAway.SetActive(true);
-        safeExit.SetActive(false);
 
         // 显示战斗场景
         show.SetActive(true);
@@ -104,7 +102,7 @@ public class BattleUI : MonoBehaviour
         }
 
         index = 0;
-        this.battleCardShow.transform.localPosition = new Vector3(-700, -350, 0);
+        this.battleCardShow.transform.localPosition = new Vector3(-700, -410, 0);
 
         // 读取卡牌序列 并显示
         foreach (BattleCard bc in BattleCardArray.GetInstance().myCards)
@@ -119,8 +117,8 @@ public class BattleUI : MonoBehaviour
             // 可以使用的卡牌
             bu.InitialCard(bc, index, true);
             obj.SetActive(true);
-            obj.transform.localScale = new Vector3(1, 1, 1);
-            obj.gameObject.transform.localPosition = new Vector3(index * 300, 0, 0);
+            obj.transform.localScale = new Vector3(0.7f, 0.7f, 1);
+            obj.gameObject.transform.localPosition = new Vector3(index * cardInterval, 0, 0);
             Debug.Log("加载一张卡牌");
             ++index;
             cardCount++;
@@ -176,8 +174,6 @@ public class BattleUI : MonoBehaviour
         this.lastCard = currentCard;
         if (!myMonster.live)
             EndBattle();
-        this.safeExit.SetActive(true);
-        this.runAway.SetActive(false);
     }
 
     // 安全撤离 safe exit
@@ -262,7 +258,7 @@ public class BattleUI : MonoBehaviour
                 this.battleCardShow.transform.localPosition += new Vector3(60, 0, 0);
             else
                 this.battleCardShow.transform.localPosition -= new Vector3(60, 0, 0);
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(0.05f);
         }
         
     }
