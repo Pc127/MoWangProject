@@ -142,6 +142,7 @@ public class Battle
 
     public static void MonsterDie(Monster monster)
     {
+        EventManager.GetInstance().logUI.ShowText("你击杀了怪物“" + monster.name + "“ 获得了一张卡牌");
         monster.live = false;
         monster.Die();
         // 杀死怪物的buff触发

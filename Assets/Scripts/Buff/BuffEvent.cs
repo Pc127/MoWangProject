@@ -26,7 +26,7 @@ public class BuffEventMap
     // public int[] myBuffLevel;
     public BuffEvent[] myBuffs;
 
-    // 获取棋盘上的随机Buff
+    // 获取棋盘上的Buff
     public BuffEvent GetBuff(int index)
     {
         BuffEvent re = new BuffEvent
