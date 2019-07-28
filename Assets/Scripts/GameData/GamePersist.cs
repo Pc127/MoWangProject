@@ -303,6 +303,7 @@ public class GamePersist
             buffOne = new SoulOfMonster(2),
             buffTwo = new LuckTouch(5)
         };
+        levelOne.myBuffs[30] = be1;
         levelOne.myBuffs[33] = be1;
         levelOne.myBuffs[36] = be1;
 
