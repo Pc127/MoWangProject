@@ -10,7 +10,7 @@ public class ArmBrokenKnight : Monster
         this.physicalDefense = 5;
         this.spellAttack = 0;
         this.spellDefense = 5;
-        this.health = 150;
+        this.health = 75;
 
         this.name = "断臂骑士巴利斯坦的亡躯";
         this.explaination = "恶灵骑士，1.5倍物理攻击";

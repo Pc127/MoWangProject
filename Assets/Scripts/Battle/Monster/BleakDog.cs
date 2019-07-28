@@ -10,7 +10,7 @@ public class BleakDog : Monster
         this.physicalDefense = 5;
         this.spellAttack = 0;
         this.spellDefense = 5;
-        this.health = 50;
+        this.health = 25;
 
         this.name = "黑教之犬";
         this.explaination = "凶猛的恶兽";
