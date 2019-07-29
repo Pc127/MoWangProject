@@ -95,6 +95,9 @@ public class Battle
         // 英雄考虑 自己伤害加深 与 自身直接伤害
         int heroCount = (int)((heroPhysicalDemage + heroSpellDemage + heroInfo.selfPhysicalDemage) * (1 + heroInfo.selfInjury) + monsterRevert - heroBloodSuck);
         hero.health -= heroCount;
+
+        // 显示数值
+        EventManager.GetInstance().battleUI.ShowBattleCount(-heroCount, -monsterCount);
         
         string heroState;
         if(heroCount > 0)

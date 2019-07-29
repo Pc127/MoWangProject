@@ -25,6 +25,10 @@ public class BattleCardUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     private BattleCard mycard;
 
+    public Animator animator;
+
+    public RectTransform rect;
+
     public void InitialCard(BattleCard bc, int index, bool use)
     {
         this.mycard = bc;
@@ -47,8 +51,23 @@ public class BattleCardUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         Debug.Log("出牌" + mycard.name);
         EventManager.GetInstance().logUI.ShowText("使用了战斗牌" + mycard.name);
 
-        StartCoroutine(UseCard(1.2f));
+        StartCoroutine(OnUseCo());
     }
+
+    IEnumerator OnUseCo()
+    {
+        Vector3 pos = rect.localPosition;
+        Vector3 diff = new Vector3(0, -300) - pos;
+        // 动画从 0 -300开始
+        for(int i = 0; i < 20; i++)
+        {
+            rect.localPosition += diff * 0.05f;
+            yield return new WaitForSeconds(0.03f);
+        }
+        animator.enabled = true;
+        StartCoroutine(UseCard(1.0f));
+    }
+
 
     public void OnChoose()
     {
@@ -58,6 +77,7 @@ public class BattleCardUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         StartCoroutine(ChooseCard(1.2f));
     }
 
+    
     IEnumerator UseCard(float sec)
     {
 

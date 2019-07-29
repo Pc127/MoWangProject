@@ -55,6 +55,11 @@ public class BattleUI : MonoBehaviour
 
     public GameObject preshow;
 
+    // 战斗数值显示
+    public GameObject battleCount;
+    public Text heroCount;
+    public Text monsterCount;
+
 
     // 卡牌间距
     private int cardInterval = 220;
@@ -68,6 +73,7 @@ public class BattleUI : MonoBehaviour
 
     public void BattleVsMonster(Monster monster)
     {
+        battleCount.SetActive(false);
         preshow.SetActive(true);
         // 保存怪物
         myMonster = monster;
@@ -110,7 +116,7 @@ public class BattleUI : MonoBehaviour
         }
 
         index = 0;
-        this.battleCardShow.transform.localPosition = new Vector3(-700, -410, 0);
+        this.battleCardShow.transform.localPosition = new Vector3(0, 0, 0);
 
         // 读取卡牌序列 并显示
         foreach (BattleCard bc in BattleCardArray.GetInstance().myCards)
@@ -126,7 +132,7 @@ public class BattleUI : MonoBehaviour
             bu.InitialCard(bc, index, true);
             obj.SetActive(true);
             obj.transform.localScale = new Vector3(0.7f, 0.7f, 1);
-            obj.gameObject.transform.localPosition = new Vector3(index * cardInterval, 0, 0);
+            obj.gameObject.transform.localPosition = new Vector3(index * cardInterval - 700, -410, 0);
             Debug.Log("加载一张卡牌");
             ++index;
             cardCount++;
@@ -269,5 +275,35 @@ public class BattleUI : MonoBehaviour
             yield return new WaitForSeconds(0.05f);
         }
         
+    }
+
+    public void ShowBattleCount(int hero, int monster)
+    {
+        Color green = new Color(10f/255, 170f/255, 10f/255);
+        Color red = new Color(225f/255, 25f/255, 25f/255);
+
+        battleCount.SetActive(true);
+
+        if(hero>0)
+        {
+            heroCount.text = "+" + hero;
+            heroCount.color = green;
+        }
+        else
+        {
+            heroCount.text = hero + "";
+            heroCount.color = red;
+        }
+
+        if (monster > 0)
+        {
+            monsterCount.text = "+" + monster;
+            monsterCount.color = green;
+        }
+        else
+        {
+            monsterCount.text = monster + "";
+            monsterCount.color = red;
+        }
     }
 }
