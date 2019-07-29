@@ -18,6 +18,7 @@ public class Dice : MonoBehaviour
 
     public void ShootDice()
     {
+        ActionPoint.GetInstance().point -= 1;
         // 生成随机数
         int index = Random.Range(1, 7);
 

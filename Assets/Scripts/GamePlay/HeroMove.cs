@@ -101,14 +101,8 @@ public class HeroMove : MonoBehaviour
         }
         
         GamePlay.GetInstance().heroPos = this.heroPos;
-
         {
-            // 两秒后再调用
-            StartCoroutine(Delay.DelayToInvokeDo(() =>
-            {
                 EventManager.GetInstance().InvokeEvent();
-            }, 2f));
-            
         }
     }
 }

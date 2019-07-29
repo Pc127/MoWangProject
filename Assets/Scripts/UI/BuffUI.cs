@@ -29,6 +29,8 @@ public class BuffUI : MonoBehaviour
     public Text explain1;
 
     public Text explain2;
+
+    public GameObject preshow;
     
     void Start()
     {
@@ -44,15 +46,22 @@ public class BuffUI : MonoBehaviour
     // 获得当前的event
     public void GetBuffEvent(BuffEvent be)
     {
-        currentEvent = be;
+        this.preshow.SetActive(true);
+        StartCoroutine(GetBuffEventCo(1.2f, be));
+    }
 
+    IEnumerator GetBuffEventCo(float sec, BuffEvent be)
+    {
+        yield return new WaitForSeconds(sec);
+        currentEvent = be;
+        this.preshow.SetActive(false);
         foreach (var item in Resources.LoadAll<Sprite>("Buff/buff"))
         {
             if (item.name == currentEvent.buffOne.name)
             {
                 this.sp1.sprite = item;
             }
-            else if(item.name == currentEvent.buffTwo.name)
+            else if (item.name == currentEvent.buffTwo.name)
             {
                 this.sp2.sprite = item;
             }

@@ -15,7 +15,8 @@ public class YouDie : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (ActionPoint.GetInstance().point < 0)
+            HeroDie();
     }
 
     public void HeroDie()

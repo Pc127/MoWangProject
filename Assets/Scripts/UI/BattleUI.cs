@@ -53,6 +53,8 @@ public class BattleUI : MonoBehaviour
 
     public GameObject runAway;
 
+    public GameObject preshow;
+
 
     // 卡牌间距
     private int cardInterval = 220;
@@ -66,19 +68,25 @@ public class BattleUI : MonoBehaviour
 
     public void BattleVsMonster(Monster monster)
     {
-        // 逃跑选项
-        runAway.SetActive(true);
-
-        // 显示战斗场景
-        show.SetActive(true);
-
+        preshow.SetActive(true);
         // 保存怪物
         myMonster = monster;
 
+        EventManager.GetInstance().logUI.ShowText("遭遇了魔物" + myMonster.name);
+
+        StartCoroutine(BattleWithMonsterCo(1.2f));
+    }
+
+    IEnumerator BattleWithMonsterCo(float sec)
+    {
+        yield return new WaitForSeconds(sec);
+
+        // 逃跑选项
+        runAway.SetActive(true);
+        this.show.SetActive(true);
+        this.preshow.SetActive(false);
+
         this.infoCoroutine = StartCoroutine(InfoPreFrame());
-
-        EventManager.GetInstance().logUI.ShowText("遭遇了魔物" + monster.name);
-
         // 展示卡牌
         ShowBattleCards();
     }

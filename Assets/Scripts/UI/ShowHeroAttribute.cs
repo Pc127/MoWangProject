@@ -15,6 +15,10 @@ public class ShowHeroAttribute : MonoBehaviour
 
     public Text health;
 
+    public Text actionPoint;
+
+    public Text monsterCount;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,5 +46,16 @@ public class ShowHeroAttribute : MonoBehaviour
         physicalDefense.text = "" + hero.physicalDefense;
 
         health.text = "" + hero.health;
+
+        actionPoint.text = "行动点数： " + ActionPoint.GetInstance().point + " ";
+
+        int i = 0;
+        foreach (var item in GamePersist.GetInstance().GetMonsterEvents().myMonsters)
+        {
+            if (item.monster.live)
+                i++;
+        }
+
+        monsterCount.text = "剩余怪物： " + i + "";
     }
 }

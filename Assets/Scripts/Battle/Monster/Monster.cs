@@ -44,12 +44,10 @@ public class Monster
         return new BattleInfo();
     }
 
-    // 死亡事件 为玩家带来一张牌
+    // 死亡事件 为玩家带来行动点数
     public virtual void Die()
     {
-        BattleCard bc = BattleCardFactory.GetInstance().GetRandomCard();
-        EventManager.GetInstance().getCardUI.InitialCard(bc);
-        BattleCardArray.GetInstance().myCards.Add(bc);
+        ActionPoint.GetInstance().point += 7;
     }
 
     public void UseToxin()

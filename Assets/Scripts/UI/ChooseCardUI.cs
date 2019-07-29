@@ -10,6 +10,8 @@ public class ChooseCardUI : MonoBehaviour
 
     public BattleCardUI second;
 
+    public GameObject preshow;
+
     void Start()
     {
         EventManager.GetInstance().chooseCardUI = this;
@@ -17,8 +19,16 @@ public class ChooseCardUI : MonoBehaviour
 
     public void MakeCardChoose(BattleCard f, BattleCard s)
     {
-        this.show.SetActive(true);
+        preshow.SetActive(true);
 
+        StartCoroutine(MakeCardChooseCo(1.2f, f, s));
+    }
+
+    IEnumerator MakeCardChooseCo(float sec, BattleCard f, BattleCard s)
+    {
+        yield return new WaitForSeconds(sec);
+        this.show.SetActive(true);
+        preshow.SetActive(false);
         first.InitialCard(f, 0, false);
         second.InitialCard(s, 0, false);
     }
