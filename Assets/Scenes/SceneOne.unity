@@ -5337,6 +5337,7 @@ MonoBehaviour:
   battleCount: {fileID: 868349378}
   heroCount: {fileID: 1305250727}
   monsterCount: {fileID: 528495579}
+  monsterRect: {fileID: 1145253594}
 --- !u!1 &679154570
 GameObject:
   m_ObjectHideFlags: 0

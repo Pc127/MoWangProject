@@ -65,6 +65,9 @@ public class BattleUI : MonoBehaviour
     private int cardInterval = 220;
     private int cardCount;
 
+    // 500*500
+    public RectTransform monsterRect;
+
     void Start()
     {
         EventManager.GetInstance().battleUI = this;
@@ -225,7 +228,17 @@ public class BattleUI : MonoBehaviour
         while (true)
         {
             // 显示怪物名称 与 说明
-            monsterImg.sprite = Resources.Load<Sprite>("Monster/" + myMonster.name);
+            Sprite sp = Resources.Load<Sprite>("Monster/" + myMonster.name);
+            monsterImg.sprite = sp;
+            if (sp.rect.width > sp.rect.height)
+            {
+                monsterRect.sizeDelta = new Vector2(500, 500/sp.rect.width*sp.rect.height);
+            }
+            else
+            {
+                monsterRect.sizeDelta = new Vector2(500 / sp.rect.height * sp.rect.width, 500);
+            }
+
             monsterName.text = myMonster.name;
             monsterText.text = myMonster.explaination;
             monsterStroy.text = myMonster.story;
