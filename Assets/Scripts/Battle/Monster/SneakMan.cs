@@ -25,4 +25,13 @@ public class SneakMan : Monster
         info.spellAttack = this.spellAttack;
         return info; ;
     }
+
+    public override void Die()
+    {
+        base.Die();
+        BattleCardArray.GetInstance().AddBattleCard(new WeakenCurse());
+        BattleCardArray.GetInstance().AddBattleCard(new HealthCurse());
+        BattleCard[] cards = new BattleCard[2] { new WeakenCurse(), new HealthCurse() };
+        EventManager.GetInstance().getCardUI.InitialCard(cards);
+    }
 }

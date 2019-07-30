@@ -149,6 +149,8 @@ public class Battle
         monster.Die();
         // 杀死怪物的buff触发
         BuffArray.GetInstance().KillMonster();
+        // 卸载怪物
+        GamePlay.GetInstance().monsterLoad.UnloadMonster(GamePlay.GetInstance().heroPos);
     }
     
 }
