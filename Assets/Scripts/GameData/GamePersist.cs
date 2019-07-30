@@ -79,112 +79,87 @@ public class GamePersist
         // 数组
         this.sceneMonster = new MonsterEventMap[3];
         // 第一个场景有21只怪物
-        this.sceneMonster[0] = new MonsterEventMap(21);
+        this.sceneMonster[0] = new MonsterEventMap(16);
 
         MonsterEvent monsterEvent = new MonsterEvent(1, 2);
         Monster monster = new BleakDog();
         monsterEvent.monster = monster;
         this.sceneMonster[0].myMonsters[0] = monsterEvent;
 
-        monsterEvent = new MonsterEvent(4, 4);
+        monsterEvent = new MonsterEvent(4, 6);
         monster = new HungryMoster();
         monsterEvent.monster = monster;
         this.sceneMonster[0].myMonsters[1] = monsterEvent;
 
-        monsterEvent = new MonsterEvent(6, 6);
+        monsterEvent = new MonsterEvent(8, 9);
         monster = new ScarletLimax();
         monsterEvent.monster = monster;
         this.sceneMonster[0].myMonsters[2] = monsterEvent;
 
-        monsterEvent = new MonsterEvent(8, 9);
-        monster = new BleakGhost();
+        monsterEvent = new MonsterEvent(11, 15);
+        monster = new OctopusMan();
         monsterEvent.monster = monster;
         this.sceneMonster[0].myMonsters[3] = monsterEvent;
 
-        monsterEvent = new MonsterEvent(11, 12);
+        monsterEvent = new MonsterEvent(17, 18);
         monster = new BleakDog();
         monsterEvent.monster = monster;
         this.sceneMonster[0].myMonsters[4] = monsterEvent;
 
-        monsterEvent = new MonsterEvent(14, 14);
+        monsterEvent = new MonsterEvent(20, 22);
         monster = new HungryMoster();
         monsterEvent.monster = monster;
         this.sceneMonster[0].myMonsters[5] = monsterEvent;
 
-        monsterEvent = new MonsterEvent(16, 17);
+        monsterEvent = new MonsterEvent(24, 26);
         monster = new BleakGhost();
         monsterEvent.monster = monster;
         this.sceneMonster[0].myMonsters[6] = monsterEvent;
 
-        monsterEvent = new MonsterEvent(19, 19);
+        monsterEvent = new MonsterEvent(28, 29);
         monster = new ScarletLimax();
         monsterEvent.monster = monster;
         this.sceneMonster[0].myMonsters[7] = monsterEvent;
 
-        monsterEvent = new MonsterEvent(20, 25);
+        monsterEvent = new MonsterEvent(31, 35);
         monster = new SneakMan();
         monsterEvent.monster = monster;
         this.sceneMonster[0].myMonsters[8] = monsterEvent;
 
-        monsterEvent = new MonsterEvent(27, 28);
+        monsterEvent = new MonsterEvent(37, 38);
         monster = new BleakDog();
         monsterEvent.monster = monster;
         this.sceneMonster[0].myMonsters[9] = monsterEvent;
 
-        monsterEvent = new MonsterEvent(30, 30);
+        monsterEvent = new MonsterEvent(40, 42);
         monster = new HungryMoster();
         monsterEvent.monster = monster;
         this.sceneMonster[0].myMonsters[10] = monsterEvent;
 
-        monsterEvent = new MonsterEvent(32, 32);
+        monsterEvent = new MonsterEvent(44, 45);
         monster = new ScarletLimax();
         monsterEvent.monster = monster;
         this.sceneMonster[0].myMonsters[11] = monsterEvent;
 
-        monsterEvent = new MonsterEvent(34, 35);
+        monsterEvent = new MonsterEvent(47, 49);
         monster = new BleakGhost();
         monsterEvent.monster = monster;
         this.sceneMonster[0].myMonsters[12] = monsterEvent;
 
-        monsterEvent = new MonsterEvent(37, 37);
-        monster = new HungryMoster();
+        monsterEvent = new MonsterEvent(51, 52);
+        monster = new ScarletLimax();
         monsterEvent.monster = monster;
         this.sceneMonster[0].myMonsters[13] = monsterEvent;
-
-        monsterEvent = new MonsterEvent(39, 39);
-        monster = new ScarletLimax();
-        monsterEvent.monster = monster;
-        this.sceneMonster[0].myMonsters[14] = monsterEvent;
-
-        monsterEvent = new MonsterEvent(40, 45);
-        monster = new OctopusMan();
-        monsterEvent.monster = monster;
-        this.sceneMonster[0].myMonsters[15] = monsterEvent;
-
-        monsterEvent = new MonsterEvent(47, 47);
-        monster = new HungryMoster();
-        monsterEvent.monster = monster;
-        this.sceneMonster[0].myMonsters[16] = monsterEvent;
-
-        monsterEvent = new MonsterEvent(49, 49);
-        monster = new ScarletLimax();
-        monsterEvent.monster = monster;
-        this.sceneMonster[0].myMonsters[17] = monsterEvent;
-
-        monsterEvent = new MonsterEvent(51, 52);
-        monster = new BleakGhost();
-        monsterEvent.monster = monster;
-        this.sceneMonster[0].myMonsters[18] = monsterEvent;
 
         monsterEvent = new MonsterEvent(54, 59);
         monster = new ArmBrokenKnight();
         monsterEvent.monster = monster;
-        this.sceneMonster[0].myMonsters[19] = monsterEvent;
+        this.sceneMonster[0].myMonsters[14] = monsterEvent;
 
         monsterEvent = new MonsterEvent(60, 60);
         monster = new BlackBarrier();
         monsterEvent.monster = monster;
-        this.sceneMonster[0].myMonsters[20] = monsterEvent;
+        this.sceneMonster[0].myMonsters[15] = monsterEvent;
     }
 
     private void InitBattleCard()
@@ -193,9 +168,16 @@ public class GamePersist
         // 卡牌加入一张跳劈卡
         BattleCardArray.GetInstance().AddBattleCard(new JumpCut());
         BattleCardArray.GetInstance().AddBattleCard(new JumpCut());
+        BattleCardArray.GetInstance().AddBattleCard(new JumpCut());
+        BattleCardArray.GetInstance().AddBattleCard(new JumpCut());
+        BattleCardArray.GetInstance().AddBattleCard(new JumpCut());
+        BattleCardArray.GetInstance().AddBattleCard(new JumpCut());
         BattleCardArray.GetInstance().AddBattleCard(new Fireball());
         BattleCardArray.GetInstance().AddBattleCard(new Fireball());
-        BattleCardArray.GetInstance().AddBattleCard(new MoveAgainCard());
+        BattleCardArray.GetInstance().AddBattleCard(new Fireball());
+        BattleCardArray.GetInstance().AddBattleCard(new Fireball());
+        BattleCardArray.GetInstance().AddBattleCard(new Fireball());
+        BattleCardArray.GetInstance().AddBattleCard(new Fireball());
 
         this.sceneBattleCard = new BattleCardMap[3];
         BattleCardMap levelOne = new BattleCardMap(60);
@@ -220,7 +202,7 @@ public class GamePersist
 
         cardEvent = new BattleCardEvent
         {
-            one = new MoveAgainCard(),
+            one = new DodgeCard(),
             two = new Recovery()
         };
         this.sceneBattleCard[0].myCardEvent[18] = cardEvent;
