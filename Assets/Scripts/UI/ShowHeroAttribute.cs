@@ -19,6 +19,8 @@ public class ShowHeroAttribute : MonoBehaviour
 
     public Text monsterCount;
 
+    public Text maxHealth;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,6 +48,8 @@ public class ShowHeroAttribute : MonoBehaviour
         physicalDefense.text = "" + hero.physicalDefense;
 
         health.text = "" + hero.health;
+
+        maxHealth.text = "" + hero.healthMax;
 
         actionPoint.text = "行动点数： " + ActionPoint.GetInstance().point + " ";
 
