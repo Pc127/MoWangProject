@@ -7,7 +7,9 @@ public class Hero
     // 私有构造函数
     private Hero()
     {
+        healthMax = 100;
         health = 100;
+        
         spellAttack = 10;
         spellDefense = 10;
         physicalAttack = 20;
@@ -43,8 +45,22 @@ public class Hero
     // 魔法防御
     public int spellDefense;
 
+    private int m_health;
     // 血量
-    public int health;
+    public int health {
+        get
+        {
+            return m_health;
+        }
+
+        set
+        {
+            if (value > healthMax)
+                m_health = healthMax;
+            else
+                m_health = value;
+        }
+    }
 
     // 反击 包括物理与魔法反击
     public int strikeBack;
@@ -52,4 +68,6 @@ public class Hero
     public bool bloodCeremony;
 
     public bool gloryBlessing;
+
+    public int healthMax;
 }
