@@ -47,7 +47,7 @@ public class Monster
     // 死亡事件 为玩家带来行动点数
     public virtual void Die()
     {
-        ActionPoint.GetInstance().point += 7;
+        ActionPoint.GetInstance().point += 2;
     }
 
     public void UseToxin()
