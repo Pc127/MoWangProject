@@ -72,6 +72,10 @@ public class GamePersist
 
     public int currentLevel;
 
+    // 第一关的怪物遮挡
+    // 8 4 3的累加
+    public int[] levelOneCull = new int[3] { 8,12,15};
+
 
     private void InitMonsters()
     {

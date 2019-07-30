@@ -60,6 +60,9 @@ public class HeroMove : MonoBehaviour
                 // 一轮结束触发Buff
                 BuffArray.GetInstance().RoundOver();
                 BattleCardArray.GetInstance().Reflash();
+
+                // 更新圈数
+                EventManager.GetInstance().circulCount++;
             }
                 
 
