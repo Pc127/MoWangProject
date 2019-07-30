@@ -8,6 +8,7 @@ public class EventManager
     private EventManager()
     {
         NewSceneUpdate();
+        circulCount = 0;
     }
 
     public void NewSceneUpdate()
@@ -54,13 +55,16 @@ public class EventManager
     // Log
     public LogUI logUI;
 
+    // 当前圈数
+    public int circulCount;
+
     // 触发事件
     public void InvokeEvent()
     {
         int heroPos = GamePlay.GetInstance().heroPos;
 
         // 先检查怪物
-        Monster m = currentMonsters.GetMonster(heroPos);
+        Monster m = currentMonsters.GetMonster(heroPos, GamePersist.GetInstance().levelOneCull[circulCount]);
 
         if(m != null)
         {

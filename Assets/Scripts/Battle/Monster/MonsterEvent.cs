@@ -32,10 +32,15 @@ public class MonsterEventMap
     // 怪物数量数
     int count;
 
-    public Monster GetMonster(int index)
+    public Monster GetMonster(int index, int maxRange)
     {
+        int i = 0;
         foreach(MonsterEvent me in myMonsters)
         {
+            // 超出范围不寻找
+            if (++i > maxRange)
+                return null;
+
             // 当前怪物
             if (me.current == index && me.monster.live)
                 return me.monster;
