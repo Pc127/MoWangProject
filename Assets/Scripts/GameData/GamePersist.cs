@@ -14,6 +14,9 @@ public class GamePersist
         this.chessBoards[0] = new ChessBoard(60);
         this.chessBoards[0].Build(new Vector2(0, 0), 150, 75, 16, 16);
 
+        this.chessBoards[1] = new ChessBoard(60);
+        this.chessBoards[1].Build(new Vector2(0, 0), 150, 75, 16, 16);
+
         // 初始化buff
         InitBuff();
 

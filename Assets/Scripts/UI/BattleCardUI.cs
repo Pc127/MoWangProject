@@ -39,7 +39,9 @@ public class BattleCardUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         else
             this.button.onClick.AddListener(OnChoose);
 
-        this.image.sprite = Resources.Load<Sprite>("Card/" + mycard.name);
+        Sprite sp = Resources.Load<Sprite>("Card/" + mycard.name);
+        if (sp)
+            this.image.sprite = sp;
 
         this.cardName.text = mycard.name;
         this.explaination.text = mycard.explaination;
