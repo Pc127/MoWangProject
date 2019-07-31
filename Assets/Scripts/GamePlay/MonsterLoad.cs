@@ -46,7 +46,7 @@ public class MonsterLoad : MonoBehaviour
 
     public void UnloadMonster(int index)
     {
-        Transform t = scene.transform.FindChild("" + index);
+        Transform t = scene.transform.Find("" + index);
         // 销毁对象
         Destroy(t.gameObject);
     }

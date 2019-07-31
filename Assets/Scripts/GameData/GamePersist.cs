@@ -222,15 +222,14 @@ public class GamePersist
             two = new Recovery()
         };
         this.sceneBattleCard[0].myCardEvent[18] = cardEvent;
-        this.sceneBattleCard[0].myCardEvent[19] = cardEvent;
         this.sceneBattleCard[0].myCardEvent[20] = cardEvent;
-        this.sceneBattleCard[0].myCardEvent[21] = cardEvent;
+        
         this.sceneBattleCard[0].myCardEvent[22] = cardEvent;
-        this.sceneBattleCard[0].myCardEvent[23] = cardEvent;
+
         this.sceneBattleCard[0].myCardEvent[24] = cardEvent;
-        this.sceneBattleCard[0].myCardEvent[25] = cardEvent;
+    
         this.sceneBattleCard[0].myCardEvent[26] = cardEvent;
-        this.sceneBattleCard[0].myCardEvent[27] = cardEvent;
+      
         this.sceneBattleCard[0].myCardEvent[28] = cardEvent;
         this.sceneBattleCard[0].myCardEvent[31] = cardEvent;
         this.sceneBattleCard[0].myCardEvent[53] = cardEvent;
@@ -242,6 +241,11 @@ public class GamePersist
             one = new DoubleEdgeSword(),
             two = new DodgeCard()
         };
+        this.sceneBattleCard[0].myCardEvent[19] = cardEvent;
+        this.sceneBattleCard[0].myCardEvent[21] = cardEvent;
+        this.sceneBattleCard[0].myCardEvent[23] = cardEvent;
+        this.sceneBattleCard[0].myCardEvent[25] = cardEvent;
+        this.sceneBattleCard[0].myCardEvent[27] = cardEvent;
         this.sceneBattleCard[0].myCardEvent[39] = cardEvent;
         this.sceneBattleCard[0].myCardEvent[46] = cardEvent;
         this.sceneBattleCard[0].myCardEvent[58] = cardEvent;
