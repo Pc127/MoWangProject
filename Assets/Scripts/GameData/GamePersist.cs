@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,9 +14,19 @@ public class GamePersist
         // 初始化 第一个棋盘
         this.chessBoards[0] = new ChessBoard(60);
         this.chessBoards[0].Build(new Vector2(0, 0), 150, 75, 16, 16);
-
         this.chessBoards[1] = new ChessBoard(60);
         this.chessBoards[1].Build(new Vector2(0, 0), 150, 75, 16, 16);
+
+        // 怪物遮蔽
+        this.levelCull = new List<int[]>();
+
+        int[] levelOneCull = new int[3] { 8, 12, 15 };
+        int[] levelTwoCull = new int[3] { 8, 12, 15 };
+        int[] levelThreeCull = new int[3] { 8, 12, 15 };
+
+        this.levelCull.Add(levelOneCull);
+        this.levelCull.Add(levelTwoCull);
+        this.levelCull.Add(levelThreeCull);
 
         // 初始化buff
         InitBuff();
@@ -26,6 +37,44 @@ public class GamePersist
         // 初始化卡牌
         InitBattleCard();
 
+        // 初始化Boss关卡
+        InitBoss();
+
+        // 第二关逻辑
+        InitLevelTwoBuff();
+        InitLevelTwoBattleCard();
+        InitLevelTwoMoster();
+
+    }
+
+    private void InitLevelTwoMoster()
+    {
+        throw new NotImplementedException();
+    }
+
+    private void InitLevelTwoBattleCard()
+    {
+        throw new NotImplementedException();
+    }
+
+    private void InitLevelTwoBuff()
+    {
+        throw new NotImplementedException();
+    }
+
+    private void InitBoss()
+    {
+        this.chessBoards[2] = new ChessBoard(60);
+        this.chessBoards[2].Build(new Vector2(0, 0), 150, 75, 16, 16);
+
+        // 第一个场景有15只怪物
+        this.sceneMonster[2] = new MonsterEventMap(1);
+
+        // 只有一只怪物
+        MonsterEvent monsterEvent = new MonsterEvent(5, 20);
+        Monster monster = new Demon();
+        monsterEvent.monster = monster;
+        this.sceneMonster[2].myMonsters[0] = monsterEvent;
     }
 
     // 单例类
@@ -64,6 +113,11 @@ public class GamePersist
         return sceneBattleCard[this.currentLevel];
     }
 
+    public int[] GetLevelCull()
+    {
+        return levelCull[this.currentLevel];
+    }
+
     // 保存三个棋盘
     public ChessBoard[] chessBoards;
     // 保存三个buffer棋盘事件
@@ -75,9 +129,8 @@ public class GamePersist
 
     public int currentLevel;
 
-    // 第一关的怪物遮挡
-    // 8 4 3的累加
-    public int[] levelOneCull = new int[3] { 8,12,15};
+    // 怪物遮挡
+    public List<int[]> levelCull;
 
 
     private void InitMonsters()

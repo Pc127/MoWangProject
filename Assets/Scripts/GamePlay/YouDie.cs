@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class YouDie : MonoBehaviour
 {
     public GameObject show;
+
+    private int currentLevel;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +23,7 @@ public class YouDie : MonoBehaviour
 
     public void HeroDie()
     {
+        this.currentLevel = GamePersist.GetInstance().currentLevel;
         this.show.SetActive(true);
         // 游戏失败 几秒后返回主菜单
         StartCoroutine(HeroDieCo());
@@ -29,6 +32,9 @@ public class YouDie : MonoBehaviour
     IEnumerator HeroDieCo()
     {
         yield return new WaitForSeconds(3.0f);
-        SceneManager.LoadScene("BadEndOne");
+        if (currentLevel == 0)
+            SceneManager.LoadScene("BadEndOne");
+        else if (currentLevel == 2)
+            SceneManager.LoadScene("BadEndTwo");      
     }
 }

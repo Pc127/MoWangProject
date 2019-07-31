@@ -61,10 +61,12 @@ public class EventManager
     // 触发事件
     public void InvokeEvent()
     {
+        NewSceneUpdate();
+
         int heroPos = GamePlay.GetInstance().heroPos;
 
         // 先检查怪物
-        Monster m = currentMonsters.GetMonster(heroPos, GamePersist.GetInstance().levelOneCull[circulCount]);
+        Monster m = currentMonsters.GetMonster(heroPos, GamePersist.GetInstance().GetLevelCull()[circulCount]);
 
         if(m != null)
         {

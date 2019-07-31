@@ -7,6 +7,8 @@ public class Success : MonoBehaviour
 {
     public GameObject show;
 
+    private int currentLevel;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +29,7 @@ public class Success : MonoBehaviour
 
     void DoSuccess()
     {
+        this.currentLevel = GamePersist.GetInstance().currentLevel;
         show.SetActive(true);
         StartCoroutine(DoSuccessCo());
     }
@@ -34,6 +37,9 @@ public class Success : MonoBehaviour
     IEnumerator DoSuccessCo()
     {
         yield return new WaitForSeconds(2.0f);
-        SceneManager.LoadScene("SceneEnd");
+        if (currentLevel == 0)
+            SceneManager.LoadScene("SceneEnd");
+        else if (currentLevel == 2)
+            SceneManager.LoadScene("NomarlEnd");
     }
 }

@@ -118,6 +118,10 @@ public class BattleUI : MonoBehaviour
                 Destroy(child.gameObject);
         }
 
+        bool cull = false;
+        if (myMonster.name == "魔王迪蒙")
+            cull = true;
+
         index = 0;
         this.battleCardShow.transform.localPosition = new Vector3(0, 0, 0);
 
@@ -127,6 +131,12 @@ public class BattleUI : MonoBehaviour
             // 冷却的卡牌不参与展示
             if (bc.active == false)
                 continue;
+            // 不能对魔王使用闪避
+            if (cull)
+            {
+                if (bc.name == "烟雾弹" || bc.name == "再次移动")
+                    continue;
+            }
             // 初始化卡牌
             GameObject obj = Instantiate(battleCardPerfab);
             obj.transform.parent = battleCardShow.transform;
@@ -237,6 +247,11 @@ public class BattleUI : MonoBehaviour
             else
             {
                 monsterRect.sizeDelta = new Vector2(500 / sp.rect.height * sp.rect.width, 500);
+            }
+
+            if(myMonster.name == "魔王迪蒙")
+            {
+                monsterRect.sizeDelta = new Vector2(600, 600);
             }
 
             monsterName.text = myMonster.name;
