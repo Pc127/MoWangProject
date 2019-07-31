@@ -6,11 +6,11 @@ public class ArmBrokenKnight : Monster
 {
     public ArmBrokenKnight()
     {
-        this.physicalAttack = 30;
-        this.physicalDefense = 5;
+        this.physicalAttack = 60;
+        this.physicalDefense = 15;
         this.spellAttack = 0;
-        this.spellDefense = 5;
-        this.health = 75;
+        this.spellDefense = 15;
+        this.health = 200;
 
         this.name = "断臂骑士巴利斯坦的亡躯";
         this.explaination = "恶灵骑士，1.5倍物理攻击";
