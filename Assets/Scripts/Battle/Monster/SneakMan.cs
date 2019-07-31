@@ -7,11 +7,11 @@ public class SneakMan : Monster
     // 一只 只会进行普通攻击的小怪
     public SneakMan()
     {
-        this.physicalAttack = 5;
-        this.physicalDefense = 5;
-        this.spellAttack = 20;
-        this.spellDefense = 5;
-        this.health = 50;
+        this.physicalAttack = 10;
+        this.physicalDefense = 12;
+        this.spellAttack =50;
+        this.spellDefense = 15;
+        this.health = 150;
 
         this.name = "蛇人法师外破";
         this.explaination = "蛇人法师，魔法攻击";

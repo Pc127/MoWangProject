@@ -6,11 +6,11 @@ public class OctopusMan : Monster
 {
     public OctopusMan()
     {
-        this.physicalAttack = 20;
-        this.physicalDefense = 10;
-        this.spellAttack = 5;
-        this.spellDefense = 8;
-        this.health = 50;
+        this.physicalAttack = 40;
+        this.physicalDefense = 15;
+        this.spellAttack = 40;
+        this.spellDefense = 10;
+        this.health = 150;
 
         this.name = "章鱼人";
         this.explaination = "物理魔法，混合攻击";

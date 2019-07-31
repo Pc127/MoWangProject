@@ -82,56 +82,56 @@ public class GamePersist
         // 怪物事件
         // 数组
         this.sceneMonster = new MonsterEventMap[3];
-        // 第一个场景有21只怪物
-        this.sceneMonster[0] = new MonsterEventMap(16);
+        // 第一个场景有15只怪物
+        this.sceneMonster[0] = new MonsterEventMap(15);
 
         MonsterEvent monsterEvent = new MonsterEvent(1, 2);
         Monster monster = new BleakDog();
         monsterEvent.monster = monster;
         this.sceneMonster[0].myMonsters[0] = monsterEvent;
 
-        monsterEvent = new MonsterEvent(4, 6);
-        monster = new HungryMoster();
-        monsterEvent.monster = monster;
-        this.sceneMonster[0].myMonsters[1] = monsterEvent;
-
         monsterEvent = new MonsterEvent(8, 9);
         monster = new ScarletLimax();
         monsterEvent.monster = monster;
-        this.sceneMonster[0].myMonsters[2] = monsterEvent;
-
-        monsterEvent = new MonsterEvent(11, 15);
-        monster = new OctopusMan();
-        monsterEvent.monster = monster;
-        this.sceneMonster[0].myMonsters[3] = monsterEvent;
+        this.sceneMonster[0].myMonsters[1] = monsterEvent;
 
         monsterEvent = new MonsterEvent(17, 18);
         monster = new BleakDog();
         monsterEvent.monster = monster;
-        this.sceneMonster[0].myMonsters[4] = monsterEvent;
-
-        monsterEvent = new MonsterEvent(20, 22);
-        monster = new HungryMoster();
-        monsterEvent.monster = monster;
-        this.sceneMonster[0].myMonsters[5] = monsterEvent;
+        this.sceneMonster[0].myMonsters[2] = monsterEvent;
 
         monsterEvent = new MonsterEvent(24, 26);
         monster = new BleakGhost();
         monsterEvent.monster = monster;
-        this.sceneMonster[0].myMonsters[6] = monsterEvent;
+        this.sceneMonster[0].myMonsters[3] = monsterEvent;
 
         monsterEvent = new MonsterEvent(28, 29);
         monster = new ScarletLimax();
         monsterEvent.monster = monster;
-        this.sceneMonster[0].myMonsters[7] = monsterEvent;
-
-        monsterEvent = new MonsterEvent(31, 35);
-        monster = new SneakMan();
-        monsterEvent.monster = monster;
-        this.sceneMonster[0].myMonsters[8] = monsterEvent;
+        this.sceneMonster[0].myMonsters[4] = monsterEvent;
 
         monsterEvent = new MonsterEvent(37, 38);
         monster = new BleakDog();
+        monsterEvent.monster = monster;
+        this.sceneMonster[0].myMonsters[5] = monsterEvent;
+
+        monsterEvent = new MonsterEvent(44, 45);
+        monster = new ScarletLimax();
+        monsterEvent.monster = monster;
+        this.sceneMonster[0].myMonsters[6] = monsterEvent;
+
+        monsterEvent = new MonsterEvent(51, 52);
+        monster = new ScarletLimax();
+        monsterEvent.monster = monster;
+        this.sceneMonster[0].myMonsters[7] = monsterEvent;
+
+        monsterEvent = new MonsterEvent(4, 6);
+        monster = new HungryMoster();
+        monsterEvent.monster = monster;
+        this.sceneMonster[0].myMonsters[8] = monsterEvent;
+
+        monsterEvent = new MonsterEvent(20, 22);
+        monster = new HungryMoster();
         monsterEvent.monster = monster;
         this.sceneMonster[0].myMonsters[9] = monsterEvent;
 
@@ -140,18 +140,18 @@ public class GamePersist
         monsterEvent.monster = monster;
         this.sceneMonster[0].myMonsters[10] = monsterEvent;
 
-        monsterEvent = new MonsterEvent(44, 45);
-        monster = new ScarletLimax();
-        monsterEvent.monster = monster;
-        this.sceneMonster[0].myMonsters[11] = monsterEvent;
-
         monsterEvent = new MonsterEvent(47, 49);
         monster = new BleakGhost();
         monsterEvent.monster = monster;
-        this.sceneMonster[0].myMonsters[12] = monsterEvent;
+        this.sceneMonster[0].myMonsters[11] = monsterEvent;
 
-        monsterEvent = new MonsterEvent(51, 52);
-        monster = new ScarletLimax();
+        monsterEvent = new MonsterEvent(11, 15);
+        monster = new OctopusMan();
+        monsterEvent.monster = monster;
+        this.sceneMonster[0].myMonsters[12] = monsterEvent;     
+
+        monsterEvent = new MonsterEvent(31, 35);
+        monster = new SneakMan();
         monsterEvent.monster = monster;
         this.sceneMonster[0].myMonsters[13] = monsterEvent;
 
