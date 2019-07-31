@@ -9,15 +9,21 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 7378d0911a1c6984e80dd7cf132eb3c8
   - enabled: 1
-    path: Assets/Scenes/Prologue.unity
+    path: Assets/Scenes/Plot/Prologue.unity
     guid: 96a39a87e567d8e479eee0102afb2658
   - enabled: 1
     path: Assets/Scenes/SceneOne.unity
     guid: 4a308bea2c5a79a4b9f9d4c23f26387e
   - enabled: 1
-    path: Assets/Scenes/BadEndOne.unity
+    path: Assets/Scenes/Plot/BadEndOne.unity
     guid: 75fd9a691320e1d4fa25c681cf8fc704
   - enabled: 1
-    path: Assets/Scenes/SceneEnd.unity
-    guid: 7da2471e205d1d34a9f613f73b53c3b2
+    path: Assets/Scenes/SceneBoss.unity
+    guid: bdefc383ca920614e9a6c83381de1040
+  - enabled: 1
+    path: Assets/Scenes/Plot/NormalEnd.unity
+    guid: cb8cc127aa3acc448b8d764efeac37e4
+  - enabled: 1
+    path: Assets/Scenes/Plot/BadEndTwo.unity
+    guid: 55f47c1c172f10a4ba5885550a94dba2
   m_configObjects: {}
