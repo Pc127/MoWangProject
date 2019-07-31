@@ -25,4 +25,13 @@ public class ArmBrokenKnight : Monster
         info.selfPhysicalDemage = 30;
         return info; ;
     }
+
+    public override void Die()
+    {
+        base.Die();
+        BattleCardArray.GetInstance().AddBattleCard(new BrightSpear());
+        BattleCardArray.GetInstance().AddBattleCard(new ShieldSpear());
+        BattleCard[] cards = new BattleCard[2] { new BrightSpear(), new ShieldSpear() };
+        EventManager.GetInstance().getCardUI.InitialCard(cards);
+    }
 }

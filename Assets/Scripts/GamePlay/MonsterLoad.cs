@@ -26,6 +26,7 @@ public class MonsterLoad : MonoBehaviour
 
         // 初始化一个怪物图片
         GameObject obj = new GameObject();
+        obj.name = "" + index;
         obj.SetActive(true);
 
         obj.transform.parent = scene.transform;
@@ -39,8 +40,15 @@ public class MonsterLoad : MonoBehaviour
 
         obj.transform.localScale = new Vector3(10, 10, 0);
         // 计算位置
-        sp.transform.localPosition = new Vector3(-chessBoard.cells[index].position.x, -chessBoard.cells[index].position.y, 0);
+        sp.transform.localPosition = new Vector3(-chessBoard.cells[index].position.x - 60, -chessBoard.cells[index].position.y -60, 0);
         Debug.Log(sp.transform.localPosition);
+    }
+
+    public void UnloadMonster(int index)
+    {
+        Transform t = scene.transform.FindChild("" + index);
+        // 销毁对象
+        Destroy(t.gameObject);
     }
 
 

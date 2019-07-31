@@ -9,42 +9,42 @@ public class GetCardUI : MonoBehaviour
     // public Text text;
 
     // 显示
+    public GameObject node;
+
     public GameObject show;
 
-    // 卡牌图标
-    public Image image;
-
-    // 卡牌名称
-    public Text cardName;
-
-    // 解释文本
-    public Text explaination;
-
-    // 按钮
-    public Button button;
-
-    public Text story;
-
-    // 战斗牌
-    private BattleCard mycard;
+    public GameObject battleCardPerfab;
 
     void Start()
     {
         EventManager.GetInstance().getCardUI = this;
     }
 
-    public void InitialCard(BattleCard bc)
+    public void InitialCard(BattleCard[] bcs)
     {
         this.show.SetActive(true);
-        this.mycard = bc;
-        // 绑定点击事件
-        this.button.onClick.AddListener(OnClick);
 
-        this.image.sprite = Resources.Load<Sprite>("BattleCard/" + mycard.name);
+        this.node.SetActive(true);
 
-        this.cardName.text = mycard.name;
-        this.explaination.text = mycard.explaination;
-        this.story.text = bc.story;
+        float index = - (bcs.Length -1 )*1.0f/2f;
+
+        foreach(var bc in bcs)
+        {
+            // 初始化卡牌
+            GameObject obj = Instantiate(battleCardPerfab);
+            obj.transform.parent = node.transform;
+            BattleCardUI bu = obj.GetComponent<BattleCardUI>();
+            // 可以使用的卡牌
+
+            bu.InitialGetCard(bc);
+            obj.SetActive(true);
+            obj.transform.localScale = new Vector3(0.7f, 0.7f, 1);
+
+            obj.gameObject.transform.localPosition = new Vector3(index * 300, 0, 0);
+
+            index+=1;
+        }
+        
     }
 
     public void OnClick()

@@ -6,7 +6,7 @@ public class ShieldSpear : BattleCard
 {
     public ShieldSpear()
     {
-        this.name = "茅与盾";
+        this.name = "光芒荆棘";
         this.explaination = "当前回合翻倍物理防御，并造成物理伤害（物理防御*1） ";
         this.needDice = false;
         this.diceIndex = 0;
