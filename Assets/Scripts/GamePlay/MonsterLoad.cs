@@ -48,7 +48,8 @@ public class MonsterLoad : MonoBehaviour
     {
         Transform t = scene.transform.Find("" + index);
         // 销毁对象
-        Destroy(t.gameObject);
+        if(t)
+            Destroy(t.gameObject);
     }
 
 

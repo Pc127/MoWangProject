@@ -21,7 +21,7 @@ public class DiceShow : MonoBehaviour {
         // 更新骰子展示
         this.show.SetActive(true);
         num.sprite = sprites[index - 1];
-        StartCoroutine(ShotDiceCo(1));
+        StartCoroutine(ShotDiceCo(2));
     }
 
     IEnumerator ShotDiceCo(float sec)

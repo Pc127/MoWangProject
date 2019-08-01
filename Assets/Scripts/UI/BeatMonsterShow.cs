@@ -17,7 +17,7 @@ public class BeatMonsterShow : MonoBehaviour {
     public void BeatMonster()
     {
         this.show.SetActive(true);
-        StartCoroutine(BeatMonsterCo(1.2f));
+        StartCoroutine(BeatMonsterCo(2.0f));
     }
 
     IEnumerator BeatMonsterCo(float sec)
