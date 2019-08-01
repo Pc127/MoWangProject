@@ -7,7 +7,7 @@ public class Invigorate : Buff
     public Invigorate(int point)
     {
         this.level = 2;
-        this.point = 20;
+        this.point = point;
         this.explaination = "活血带来新的生命力";
         this.name = "活血";
     }
