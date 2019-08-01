@@ -226,12 +226,6 @@ public class GamePersist
         BattleCardArray.GetInstance().AddBattleCard(new JumpCut());
         BattleCardArray.GetInstance().AddBattleCard(new JumpCut());
         BattleCardArray.GetInstance().AddBattleCard(new JumpCut());
-        BattleCardArray.GetInstance().AddBattleCard(new JumpCut());
-        BattleCardArray.GetInstance().AddBattleCard(new JumpCut());
-        BattleCardArray.GetInstance().AddBattleCard(new JumpCut());
-        BattleCardArray.GetInstance().AddBattleCard(new Fireball());
-        BattleCardArray.GetInstance().AddBattleCard(new Fireball());
-        BattleCardArray.GetInstance().AddBattleCard(new Fireball());
         BattleCardArray.GetInstance().AddBattleCard(new Fireball());
         BattleCardArray.GetInstance().AddBattleCard(new Fireball());
         BattleCardArray.GetInstance().AddBattleCard(new Fireball());
@@ -239,10 +233,6 @@ public class GamePersist
         BattleCardArray.GetInstance().AddBattleCard(new Fireball());
         BattleCardArray.GetInstance().AddBattleCard(new Recovery());
         BattleCardArray.GetInstance().AddBattleCard(new Recovery());
-        BattleCardArray.GetInstance().AddBattleCard(new Recovery());
-        BattleCardArray.GetInstance().AddBattleCard(new Recovery());
-        BattleCardArray.GetInstance().AddBattleCard(new DodgeCard());
-        BattleCardArray.GetInstance().AddBattleCard(new DodgeCard());
         BattleCardArray.GetInstance().AddBattleCard(new DodgeCard());
 
         this.sceneBattleCard = new BattleCardMap[3];
@@ -345,7 +335,7 @@ public class GamePersist
 
         be1 = new BuffEvent
         {
-            buffOne = new Coalescence(2),
+            buffOne = new Coalescence(1),
             buffTwo = new Harvest(5)
         };
         levelOne.myBuffs[4] = be1;
