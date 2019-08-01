@@ -49,17 +49,14 @@ public class GamePersist
 
     private void InitLevelTwoMoster()
     {
-        throw new NotImplementedException();
     }
 
     private void InitLevelTwoBattleCard()
     {
-        throw new NotImplementedException();
     }
 
     private void InitLevelTwoBuff()
     {
-        throw new NotImplementedException();
     }
 
     private void InitBoss()

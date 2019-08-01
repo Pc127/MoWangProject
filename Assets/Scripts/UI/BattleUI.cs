@@ -60,6 +60,8 @@ public class BattleUI : MonoBehaviour
     public Text heroCount;
     public Text monsterCount;
 
+    public List<GameObject> needHide;
+
 
     // 卡牌间距
     private int cardInterval = 220;
@@ -76,6 +78,7 @@ public class BattleUI : MonoBehaviour
 
     public void BattleVsMonster(Monster monster)
     {
+        
         battleCount.SetActive(false);
         preshow.SetActive(true);
         // 保存怪物
@@ -89,9 +92,13 @@ public class BattleUI : MonoBehaviour
     IEnumerator BattleWithMonsterCo(float sec)
     {
         yield return new WaitForSeconds(sec);
+        foreach (var item in needHide)
+        {
+            item.SetActive(false);
+        }
 
         // 逃跑选项
-        runAway.SetActive(true);
+        //runAway.SetActive(true);
         this.show.SetActive(true);
         this.preshow.SetActive(false);
 
@@ -216,7 +223,10 @@ public class BattleUI : MonoBehaviour
     {
 
         yield return new WaitForSeconds(sec);
-
+        foreach (var item in needHide)
+        {
+            item.SetActive(true);
+        }
         this.show.SetActive(false);
         GamePlay.GetInstance().heroMove.MakeMove(index);
         StopCoroutine(this.infoCoroutine);
@@ -226,6 +236,11 @@ public class BattleUI : MonoBehaviour
     IEnumerator EndBattleCoroutine(float sec)
     {
         yield return new WaitForSeconds(sec);
+
+        foreach (var item in needHide)
+        {
+            item.SetActive(true);
+        }
 
         this.show.SetActive(false);
         GamePlay.GetInstance().ShowMoveDice();
