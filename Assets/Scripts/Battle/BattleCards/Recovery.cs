@@ -10,6 +10,7 @@ public class Recovery : BattleCard
         this.explaination = "回复20血量";
         this.needDice = false;
         this.diceIndex = 0;
+        this.attackType = 1;
 
         this.story = "召唤治愈的光芒，接受光芒的祝福，能从流溢的世界精神之中获取修复自身的能量。";
     }

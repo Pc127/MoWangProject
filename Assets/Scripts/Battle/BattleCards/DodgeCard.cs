@@ -10,6 +10,7 @@ public class DodgeCard : BattleCard
         this.explaination = "本回合不受伤害，直接脱离战斗";
         this.needDice = false;
         this.diceIndex = 0;
+        this.attackType = 2;
 
         this.story = "在实力悬殊时，投出烟雾弹可以避免与敌人发生战斗，也不会对自己产生伤害，等准备好之后再和强大的敌人对决也不迟。";
     }

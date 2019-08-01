@@ -10,6 +10,7 @@ public class Repeat : BattleCard
         this.explaination = "再次触发上一回合的战斗牌效果";
         this.needDice = false;
         this.diceIndex = 0;
+        this.attackType = 1;
 
         this.story = "空白符卡是一种稀有的符卡，能够复制上一张符卡的效果，当拥有强大的符卡时，使用空白符卡复制强大的符卡，能够达成成倍的收益。";
     }

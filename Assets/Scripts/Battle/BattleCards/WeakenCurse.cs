@@ -10,6 +10,7 @@ public class WeakenCurse : BattleCard
         this.explaination = "削减敌方30%物理&魔法攻击（骰子点数>3） ";
         this.needDice = true;
         this.diceIndex = 0;
+        this.attackType = 2;
 
         this.story = "由光明教会的传奇战斗法师阿尔德谬开发的符卡，在光芒圣骰的选择下，能够削弱魔物很大部分能力。";
     }

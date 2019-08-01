@@ -32,6 +32,8 @@ public class Monster
 
     private float latentDamage;
 
+    public int attackType = 0;
+
     public Monster()
     {
         live = true;

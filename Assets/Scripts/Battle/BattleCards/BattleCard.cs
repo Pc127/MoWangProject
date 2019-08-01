@@ -23,6 +23,8 @@ public class BattleCard
     // 活跃状态
     public bool active = true;
 
+    public int attackType = 0;
+
     public virtual BattleInfo InvokeCard(Monster monster)
     {
         BattleInfo info = new BattleInfo();

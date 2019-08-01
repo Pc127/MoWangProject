@@ -10,7 +10,7 @@ public class BloodSacrifice : BattleCard
         this.explaination = "自身收到2倍伤害，返回5倍伤害（单倍为魔攻×0.5×点数）";
         this.needDice = false;
         this.diceIndex = 0;
-
+        this.attackType = 1;
         this.story = "以鲜血为媒介，能够将自己的灵魂暂时寄托给黑暗面。";
     }
 

@@ -10,7 +10,7 @@ public class DoubleEdgeSword : BattleCard
         this.explaination = "对敌方与自身同时造成物理攻击（敌方：物攻*3，自身：物攻*1）";
         this.needDice = false;
         this.diceIndex = 0;
-
+        this.attackType = 0;
         this.story = "被教会骑士团为是异端格斗技，但不可否认其虽然会对自身造成伤害，但是在战斗中有极为可观的收益。";
     }
 

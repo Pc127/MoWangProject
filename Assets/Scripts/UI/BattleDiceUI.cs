@@ -8,8 +8,13 @@ public class BattleDiceUI : MonoBehaviour
 
     public BattleUI battleUI;
 
+    public DiceShow diceShow;
+
+    public Animator animator;
+
     void Start()
     {
+        animator.enabled = false;
     }
 
     void Update()
@@ -19,12 +24,30 @@ public class BattleDiceUI : MonoBehaviour
 
     public void ShootDice()
     {
+        animator.enabled = true;
+        StartCoroutine(ShotDiceCo(1));
+        
+    }
+
+    IEnumerator ShotDiceCo(float sec)
+    {
+        yield return new WaitForSeconds(sec);
+
+        // 关闭动画
+        animator.enabled = false;
+
         // 生成随机数
         int index = Random.Range(1, 7);
 
-        Debug.Log("Dice" + index);
+        BuffArray.GetInstance().Dice(index);
+
+        EventManager.GetInstance().logUI.ShowText("你掷出了" + index);
+
+        // 掷骰子提示
+        diceShow.ShotDice(index);
 
         battleUI.ShotDice(index);
+
     }
 
     // 隐藏移动的骰子

@@ -10,6 +10,7 @@ public class MagicRebound : BattleCard
         this.explaination = "反弹当前魔法攻击（骰子点数>2）";
         this.needDice = true;
         this.diceIndex = 0;
+        this.attackType = 2;
 
         this.story = "光明教会的大法师艾琳开发的符卡，在光明圣骰的选择之下，能够全额反弹敌人的魔法攻击。";
     }

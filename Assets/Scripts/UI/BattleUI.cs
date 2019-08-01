@@ -46,7 +46,7 @@ public class BattleUI : MonoBehaviour
 
     //骰子
     public GameObject dice;
-    public Text diceCardName;
+    // public Text diceCardName;
 
     // 更新怪物信息的协程
     private Coroutine infoCoroutine;
@@ -70,6 +70,10 @@ public class BattleUI : MonoBehaviour
     // 500*500
     public RectTransform monsterRect;
 
+    public BattleEffect effect;
+
+    public BeatMonsterShow beatMonster;
+
     void Start()
     {
         EventManager.GetInstance().battleUI = this;
@@ -78,7 +82,6 @@ public class BattleUI : MonoBehaviour
 
     public void BattleVsMonster(Monster monster)
     {
-        
         battleCount.SetActive(false);
         preshow.SetActive(true);
         // 保存怪物
@@ -203,6 +206,8 @@ public class BattleUI : MonoBehaviour
 
     public void StartBattle()
     {
+        // 战斗特效
+        effect.ShowEffect(currentCard.attackType, myMonster.attackType);
         Battle.StartBattle(myMonster, currentCard);
         // 2s后结束游戏
         this.lastCard = currentCard;

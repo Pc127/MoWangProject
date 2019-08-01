@@ -10,6 +10,7 @@ public class BrightSpear : BattleCard
         this.explaination = "进行一次魔法攻击（魔攻*(2+点数)）";
         this.needDice = true;
         this.diceIndex = 0;
+        this.attackType = 1;
 
         this.story = "光明教会的高阶法术，用以太凝聚而成的闪耀着光芒的魔法长枪，由光明教会的初代教主小红开发。光芒圣枪充满着神圣的力量，能制造巨大的伤害。";
     }

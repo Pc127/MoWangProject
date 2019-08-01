@@ -144,13 +144,15 @@ public class Battle
 
     public static void MonsterDie(Monster monster)
     {
-        EventManager.GetInstance().logUI.ShowText("你击杀了怪物“" + monster.name + "“ 获得了一张卡牌");
+        EventManager.GetInstance().logUI.ShowText("你击杀了怪物“" + monster.name );
         monster.live = false;
         monster.Die();
         // 杀死怪物的buff触发
         BuffArray.GetInstance().KillMonster();
         // 卸载怪物
         GamePlay.GetInstance().monsterLoad.UnloadMonster(GamePlay.GetInstance().heroPos);
+        // 显示beat monster
+        EventManager.GetInstance().battleUI.beatMonster.BeatMonster();
     }
     
 }

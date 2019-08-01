@@ -65,6 +65,9 @@ public class EventManager
 
         int heroPos = GamePlay.GetInstance().heroPos;
 
+        // 只有前两圈 会有遮蔽
+        if (circulCount > 2)
+            circulCount = 2;
         // 先检查怪物
         Monster m = currentMonsters.GetMonster(heroPos, GamePersist.GetInstance().GetLevelCull()[circulCount]);
 

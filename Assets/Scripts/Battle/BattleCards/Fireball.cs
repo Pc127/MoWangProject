@@ -10,6 +10,7 @@ public class Fireball : BattleCard
         this.explaination = "进行一次魔法攻击（魔攻*0.5*骰子点数）";
         this.needDice = true;
         this.diceIndex = 0;
+        this.attackType = 1;
 
         this.story = "光明教会的初级法术，这个法术在光明教会诞生之前便已经存在，法术在民间亦有普及，施法者从以太中汲取能量产生火焰，并且够抛出它制造伤害。";
     }

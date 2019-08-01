@@ -10,6 +10,7 @@ public class BloodBehold : BattleCard
         this.explaination = "造成基于对方生命数值的魔法伤害，并回复造成伤害数值的血量（敌方生命值*0.1*骰子点数）";
         this.needDice = true;
         this.diceIndex = 0;
+        this.attackType = 1;
 
         this.story = "光明教会的高阶法术，能够汲取敌人的灵魂力量，回复自身的血量。";
     }
