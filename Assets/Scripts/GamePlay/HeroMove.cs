@@ -16,13 +16,20 @@ public class HeroMove : MonoBehaviour
 
     private Face myFace;
 
+    private Hide myHide;
+
+    public Animator animator;
+
+    //Hero的spr
     private SpriteRenderer sp;
     
     void Start()
     {
         sp = this.GetComponent<SpriteRenderer>();
+        animator.enabled = false;
 
         myFace = Face.FRONT_RIGHT;
+        myHide = Hide.BEHIND;
         GamePlay.GetInstance().heroPos = 0;
         this.heroPos = 0;
         this.chessBoard = GamePersist.GetInstance().GetChessBoard();
@@ -46,6 +53,8 @@ public class HeroMove : MonoBehaviour
 
     IEnumerator Move(int stepCount, bool actionEnable)
     {
+        if(myFace == Face.FRONT_LEFT || myFace == Face.FRONT_RIGHT)
+            animator.enabled = true;
         // 隐藏色子
         GamePlay.GetInstance().HideMoveDice();
 
@@ -92,10 +101,27 @@ public class HeroMove : MonoBehaviour
                     case Face.BACK_LEFT:
                         sp.sprite = this.back;
                         sp.flipX = true;
+                        animator.enabled = false;
                         break;
                     case Face.BACK_RIGHT:
                         sp.sprite = this.back;
                         sp.flipX = false;
+                        animator.enabled = false;
+                        break;
+                }
+            }
+
+            if(myHide != chessBoard.cells[heroPos].hide)
+            {
+                myHide = chessBoard.cells[heroPos].hide;
+
+                switch (myHide)
+                {
+                    case Hide.BEHIND:
+                        sp.sortingOrder = 7;
+                        break;
+                    case Hide.FRONT:
+                        sp.sortingOrder = 12;
                         break;
                 }
             }
@@ -104,8 +130,10 @@ public class HeroMove : MonoBehaviour
         }
         
         GamePlay.GetInstance().heroPos = this.heroPos;
-        {
-                EventManager.GetInstance().InvokeEvent();
-        }
+        
+        EventManager.GetInstance().InvokeEvent();
+
+        animator.enabled = false;
+        
     }
 }

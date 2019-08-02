@@ -7,6 +7,9 @@ public class BattleInfo
     // 闪避
     public bool dodge = false;
 
+    // 回血
+    public int healthReflash;
+
     // 造成的物理攻击
     public int physicalAttack;
 
@@ -96,9 +99,14 @@ public class Battle
         int heroCount = (int)((heroPhysicalDemage + heroSpellDemage + heroInfo.selfPhysicalDemage) * (1 + heroInfo.selfInjury) + monsterRevert - heroBloodSuck);
         hero.health -= heroCount;
 
+        // 计算回血 只是计算
+        hero.health += heroInfo.healthReflash;
+
+        heroCount -= heroInfo.healthReflash;
+
         // 显示数值
         EventManager.GetInstance().battleUI.ShowBattleCount(-heroCount, -monsterCount);
-        
+
         string heroState;
         if(heroCount > 0)
         {
@@ -120,8 +128,9 @@ public class Battle
             monsterState = "回复";
             monsterCount *= -1;
         }
+        
 
-        EventManager.GetInstance().logUI.ShowText("英雄收到了" + heroCount + heroState + ", " + "魔物受到了" + monsterCount + monsterState);
+        EventManager.GetInstance().logUI.ShowText("英雄受到到了" + heroCount + heroState + ", " + "魔物受到了" + monsterCount + monsterState);
 
         if (hero.health <= 0)
         {
@@ -144,7 +153,7 @@ public class Battle
 
     public static void MonsterDie(Monster monster)
     {
-        EventManager.GetInstance().logUI.ShowText("你击杀了怪物“" + monster.name );
+        EventManager.GetInstance().logUI.ShowText("你击杀了怪物“" + monster.name +"’增加了行动点");
         monster.live = false;
         monster.Die();
         // 杀死怪物的buff触发

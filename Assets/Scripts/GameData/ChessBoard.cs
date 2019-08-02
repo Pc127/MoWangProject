@@ -4,12 +4,14 @@ using UnityEngine;
 
 // 棋子朝向
 public enum Face { BACK_RIGHT, BACK_LEFT, FRONT_RIGHT, FRONT_LEFT };
+public enum Hide { BEHIND, FRONT};
 
 // 棋子格子
 public struct Cell
 {
     public Vector2 position;
     public Face face;
+    public Hide hide;
 }
 
 
@@ -53,6 +55,7 @@ public class ChessBoard
             // 计算位置
             cell.position = origin + i *  new Vector2(-xOffset, yOffset);
             cell.face = Face.FRONT_RIGHT;
+            cell.hide = Hide.BEHIND;
             // 加入数组
             cells[i] = cell;
         }
@@ -64,6 +67,7 @@ public class ChessBoard
             // 计算位置
             cell.position = cells[i-1].position + new Vector2(xOffset, yOffset);
             cell.face = Face.FRONT_LEFT;
+            cell.hide = Hide.FRONT;
             // 加入数组
             cells[i] = cell;
         }
@@ -74,6 +78,7 @@ public class ChessBoard
             Cell cell = new Cell();
             cell.position = cells[i - 1].position + new Vector2(xOffset, -yOffset);
             cell.face = Face.BACK_LEFT;
+            cell.hide = Hide.FRONT;
             cells[i] = cell;
         }
 
@@ -83,6 +88,7 @@ public class ChessBoard
             Cell cell = new Cell();
             cell.position = cells[i - 1].position + new Vector2(-xOffset, -yOffset);
             cell.face = Face.BACK_RIGHT;
+            cell.hide = Hide.FRONT;
             cells[i] = cell;
         }
     }

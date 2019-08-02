@@ -21,7 +21,7 @@ public class Recovery : BattleCard
     {
         BattleInfo info = new BattleInfo();
 
-        Hero.GetInstance().health += 50;
+        info.healthReflash = 50;
 
         return info;
     }

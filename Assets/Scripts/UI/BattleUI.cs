@@ -262,16 +262,16 @@ public class BattleUI : MonoBehaviour
             monsterImg.sprite = sp;
             if (sp.rect.width > sp.rect.height)
             {
-                monsterRect.sizeDelta = new Vector2(500, 500/sp.rect.width*sp.rect.height);
+                monsterRect.sizeDelta = new Vector2(600, 600/sp.rect.width*sp.rect.height);
             }
             else
             {
-                monsterRect.sizeDelta = new Vector2(500 / sp.rect.height * sp.rect.width, 500);
+                monsterRect.sizeDelta = new Vector2(600 / sp.rect.height * sp.rect.width, 600);
             }
 
             if(myMonster.name == "魔王迪蒙")
             {
-                monsterRect.sizeDelta = new Vector2(600, 600);
+                monsterRect.sizeDelta = new Vector2(700, 800);
             }
 
             monsterName.text = myMonster.name;

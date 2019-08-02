@@ -32,6 +32,8 @@ public class MonsterLoad : MonoBehaviour
         obj.transform.parent = scene.transform;
 
         SpriteRenderer sp = obj.AddComponent<SpriteRenderer>();
+        // 遮挡关系在前
+        sp.sortingOrder = 12;
 
         sp.sprite = Resources.Load<Sprite>("Monster/" + name);
 

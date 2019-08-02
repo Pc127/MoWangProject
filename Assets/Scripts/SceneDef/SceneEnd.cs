@@ -13,7 +13,7 @@ public class SceneEnd : MonoBehaviour
             start = false;
 
             GamePersist.GetInstance().currentLevel = 2;
-            GamePlay.GetInstance().MakeMove(9);
+            GamePlay.GetInstance().MakeMove(8);
         }
     }
 }
