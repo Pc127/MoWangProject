@@ -21,6 +21,7 @@ public class Invigorate : Buff
     {
         base.OnAcquire();
         Hero.GetInstance().healthMax += (int)(point);
+        Hero.GetInstance().health += (int)point;
     }
 
     public override void Superposition(Buff other)

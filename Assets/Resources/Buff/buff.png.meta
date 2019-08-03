@@ -53,6 +53,9 @@ TextureImporter:
   - first:
       213: -3599458018239347652
     second: "\u5723\u5149\u795D\u798F"
+  - first:
+      213: -4169142952817085632
+    second: "\u6D3B\u8840"
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -382,6 +385,27 @@ TextureImporter:
       bones: []
       spriteID: 1c4382b4cf73d054dadb3e1eb47a555d
       internalID: -3599458018239347652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u6D3B\u8840"
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 151
+        width: 181
+        height: 156
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c5b95a478ab32c4080ed831bf1de9bb
+      internalID: -4169142952817085632
       vertices: []
       indices: 
       edges: []

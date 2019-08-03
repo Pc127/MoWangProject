@@ -7,7 +7,7 @@ public class Recovery : BattleCard
     public Recovery()
     {
         this.name = "大回复术";
-        this.explaination = "回复20血量";
+        this.explaination = "回复50血量";
         this.needDice = false;
         this.diceIndex = 0;
         this.attackType = 1;

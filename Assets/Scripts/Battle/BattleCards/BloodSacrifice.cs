@@ -7,7 +7,7 @@ public class BloodSacrifice : BattleCard
     public BloodSacrifice()
     {
         this.name = "鲜血献祭";
-        this.explaination = "自身收到2倍伤害，返回5倍伤害（单倍为魔攻×0.5×点数）";
+        this.explaination = "自身收到魔物攻击的2倍伤害，返回5倍伤害";
         this.needDice = false;
         this.diceIndex = 0;
         this.attackType = 1;
