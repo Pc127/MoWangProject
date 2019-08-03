@@ -38,7 +38,7 @@ public class Success : MonoBehaviour
     {
         yield return new WaitForSeconds(2.0f);
         if (currentLevel == 0)
-            SceneManager.LoadScene("SceneEnd");
+            SceneManager.LoadScene("SceneBoss");
         else if (currentLevel == 2)
             SceneManager.LoadScene("NomarlEnd");
     }

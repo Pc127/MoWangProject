@@ -11,6 +11,7 @@ public class SceneEnd : MonoBehaviour
         if (start)
         {
             start = false;
+            Hero.GetInstance().health = Hero.GetInstance().healthMax;
 
             GamePersist.GetInstance().currentLevel = 2;
             GamePlay.GetInstance().MakeMove(8);
