@@ -13,8 +13,8 @@ public class SneakMan : Monster
         this.spellDefense = 15;
         this.health = 150;
 
-        this.name = "蛇人法师外破";
-        this.explaination = "蛇人法师，魔法攻击";
+        this.name = "羊人法师外破";
+        this.explaination = "羊人法师，魔法攻击";
         this.story = "外破Viper是自黑教诞生以来便时常出现在城镇中的魔物，他行踪飘忽不定，每当骑士团放松警惕时，他便会出现攻击镇民和骑士，而当骑士团们行动起来讨伐他时他又消失不见。他拿着一个法杖，上面缠着很多条毒蛇。有年长的骑士说他似乎见过那个法杖，在黑教诞生之前，但是年轻的骑士们对此不以为然。";
     }
 
