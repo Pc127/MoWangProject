@@ -17,9 +17,9 @@ public class Demon : Monster
     public Demon()
     {
         this.physicalAttack = 66;
-        this.physicalDefense = 46;
+        this.physicalDefense = 40;
         this.spellAttack = 66;
-        this.spellDefense = 46;
+        this.spellDefense = 40;
         this.health = 166;
 
         this.name = "魔王迪蒙";
